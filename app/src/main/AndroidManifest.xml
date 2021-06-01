@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeView">
-        <activity android:name=".adapter.testgithub"></activity>
         <activity android:name=".view.VideoActivity">
             android:configChange="orientation|screenSize|layoutDirection">
         </activity>
