@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E2B51F1F"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:src="@drawable/group_13" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_above="@+id/bottomcoment"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/backgrow"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Denunciar"
+                android:textColor="#10c8c8"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_marginTop="112dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/group_10"/>
+        <TextView
+            android:layout_marginTop="14dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="13sp"
+            android:text="Gracias por denunciar"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_marginTop="11dp"
+          android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Hemos recepcionado tu denuncia, lo revisaremos
+pronto y tomaremos las medidas necesarias para
+que la comunidad de Bitel siga siendo un lugar seguro ."/>
+
+
+
+        <Button
+            android:layout_width="285dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="132dp"
+            android:background="@drawable/backgrow_button"
+            android:text="Enviar"
+
+            android:textAllCaps="false" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

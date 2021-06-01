@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E2B51F1F"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:src="@drawable/group_13" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomcoment"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/backgrow"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/group_18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Denunciar"
+                android:textColor="#10c8c8"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="17dp"
+            android:text="¿Por qué quieres denunciar este comentario?"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="25.5dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing el
+it. Suspendisse sit amet mauris ac justo posuere cur
+sus vel eu ligula. Nullam ullamcorper augue."
+            android:textColor="#667b90"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="17dp"
+            android:text="Selecciona un motivo:"
+            android:textColor="#2b3a4a"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="11.5dp"
+            android:background="#ebf0f5" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Información engañosa"
+                    android:textColor="#415263"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="50dp"
+                    android:src="@drawable/group_19" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ebf0f5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Contenido violento"
+                    android:textColor="#415263"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="50dp"
+                    android:src="@drawable/group_19" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ebf0f5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Fraude y estafas"
+                    android:textColor="#415263"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="50dp"
+                    android:src="@drawable/group_19" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ebf0f5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Persona peligrosa"
+                    android:textColor="#415263"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="50dp"
+                    android:src="@drawable/group_19" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ebf0f5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Lenguaje inapropiado"
+                    android:textColor="#415263"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="50dp"
+                    android:src="@drawable/group_19" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ebf0f5" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Acoso o intimidación"
+                    android:textColor="#415263"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="50dp"
+                    android:src="@drawable/group_19" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ebf0f5" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

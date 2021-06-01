@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E2B51F1F"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:src="@drawable/group_13" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_above="@+id/bottomcoment"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/backgrow"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/group_18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Denunciar"
+                android:textColor="#10c8c8"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="31.5dp"
+            android:layout_marginTop="17dp"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            tools:text="Información engañosa" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="17dp"
+            android:text="Queda prohibido:"
+            android:textColor="#667b90"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginLeft="33dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#fb624a" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="19dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
+elit molestie lorem vel commodo tincidunt. "
+                    android:textColor="#667b90"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginLeft="33dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#fb624a" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="19dp"
+                    android:text="Donec ante erat, congue et tristique eget, ferment
+um at nulla. Nam vestibulum aliquam enim quis dic
+tum massa gravida id enean justo lectus, facilisis
+non lacus. "
+                    android:textColor="#667b90"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginLeft="33dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#fb624a" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="19dp"
+                    android:text="Mauris imperdiet erat ut ex vulputate, eget egestas
+dolor scelerisque ed non nisi.  "
+                    android:textColor="#667b90"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_marginLeft="33dp"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="#fb624a" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="19dp"
+                    android:text="Non feugiat sem feugiat. Etiam commodo euismod
+cursus."
+                    android:textColor="#667b90"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="285dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="149dp"
+            android:background="@drawable/backgrow_button"
+            android:text="Enviar"
+            android:textAllCaps="false" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

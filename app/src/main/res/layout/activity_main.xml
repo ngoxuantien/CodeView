@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="itemClick"
+            type="com.example.codeview.view.MainActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".view.MainActivity">
+
+
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="0dp"
+            android:layout_height="132dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/group_11" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/backgrow"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginRight="110dp"
+                android:lineSpacingExtra="-1sp"
+                android:text="¿Qué categorías te interesa?"
+                android:textColor="#000000"
+                android:textSize="19sp"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="112dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/backgrow_button"
+                    android:text="Arte y diseño"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:layout_width="79dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Animes"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_width="79dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Belleza"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="79dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+
+                    android:background="@drawable/backgrow_button"
+                    android:padding="1dp"
+                    android:text="Hobbies"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:layout_width="83dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Cocina"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_width="104dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button"
+                    android:text="Deportes"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="104dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Education"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_width="112dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Mascotas"
+                    android:textAllCaps="false" />
+
+                <Button
+
+                    android:layout_width="104dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Moda"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="83dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Musica"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_width="104dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button"
+                    android:text="Tecnologia"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:layout_width="104dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/backgrow_button_white"
+                    android:text="Naturaleza"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="112dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/backgrow_button_white"
+                android:text="Estilo de vida"
+                android:textAllCaps="false" />
+
+            <Button
+                android:onClick="@{()->itemClick.setClickbutton()}"
+                android:id="@+id/bottomsheet"
+                android:layout_width="322dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="211dp"
+                android:background="@drawable/backgrow_continuar"
+                android:backgroundTint="@null"
+                android:text="Continuar"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="17dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:text="Videos"
+            android:textColor="#007689"
+            android:textSize="17sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="265dp"
+            android:layout_marginLeft="265dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/backgrow_saltar"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:text="Saltar"
+                android:textColor="#00a5b1"
+                android:textSize="13sp"
+                android:textStyle="normal"
+
+                />
+
+            <ImageView
+
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_next" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="300dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back" />
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
