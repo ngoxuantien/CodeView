@@ -83,7 +83,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     public int getItemCount() {
         return commentList.size();
     }
-
+//dljfaljfl
     public class ViewHolder extends RecyclerView.ViewHolder {
         RecyclerView recyclerViewResponse;
         ImageView commentImage, itemCollapse;
