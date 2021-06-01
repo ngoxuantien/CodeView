@@ -1,6 +1,7 @@
 package com.example.codeview.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.codeview.R;
+import com.example.codeview.databinding.ActivityVideoBinding;
+import com.example.codeview.model.VideoUser;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -33,35 +36,40 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
 public class VideoActivity extends AppCompatActivity {
-ImageView comment;
-PlayerView playerView;
-ProgressBar progressBar;
-SimpleExoPlayer simpleExoPlayer;
-boolean flag = false;
-int k=1;
+    ImageView comment;
+    PlayerView playerView;
+    ProgressBar progressBar;
+    SimpleExoPlayer simpleExoPlayer;
+    boolean flag = false;
+    int k = 1;
+    VideoUser videoUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        videoUser = new VideoUser(1,20,20,"tien","ta la ngo xua tien dayhahahahah","dsds","Ngô Xuân Tiến");
 
-        setContentView(R.layout.activity_video);
-        comment= findViewById(R.id.comment);
-        playerView= findViewById(R.id.play_video);
-        progressBar= findViewById(R.id.progress_bar);
-
+        ActivityVideoBinding activityVideoBinding = DataBindingUtil.setContentView(this, R.layout.activity_video);
+        activityVideoBinding.setVideoUser(videoUser);
 
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //   setContentView(R.layout.activity_video);
+        comment = findViewById(R.id.comment);
+        playerView = findViewById(R.id.play_video);
+        progressBar = findViewById(R.id.progress_bar);
+
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Uri videoUrl = Uri.parse("https://dzbbmecpa0hd2.cloudfront.net/video/original/2019/04/19/13/1555655593_3f2c69bcf3a428d7.mp4");
         LoadControl loadControl = new DefaultLoadControl();
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
 
 
-        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(VideoActivity.this,trackSelector,loadControl);
+        simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(VideoActivity.this, trackSelector, loadControl);
         DefaultHttpDataSourceFactory factory = new DefaultHttpDataSourceFactory("exoplayer_video");
         ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-        MediaSource mediaSource = new ExtractorMediaSource(videoUrl,factory,extractorsFactory,null,null);
+        MediaSource mediaSource = new ExtractorMediaSource(videoUrl, factory, extractorsFactory, null, null);
         playerView.setPlayer(simpleExoPlayer);
         playerView.setKeepScreenOn(true);
         simpleExoPlayer.prepare(mediaSource);
@@ -123,13 +131,12 @@ int k=1;
         });
 
 
-
         comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                    MyBottonSheetDialogFragment sheetDialogFragment = MyBottonSheetDialogFragment.newInstance();
-                    sheetDialogFragment.show(getSupportFragmentManager(),sheetDialogFragment.getTag());
+                MyBottonSheetDialogFragment sheetDialogFragment = MyBottonSheetDialogFragment.newInstance();
+                sheetDialogFragment.show(getSupportFragmentManager(), sheetDialogFragment.getTag());
 
                 simpleExoPlayer.setPlayWhenReady(false);
                 simpleExoPlayer.getPlaybackState();
@@ -137,14 +144,15 @@ int k=1;
         });
 
     }
+
     @Override
     protected void onPause() {
         super.onPause();
 
 
-            simpleExoPlayer.setPlayWhenReady(false);
-            simpleExoPlayer.getPlaybackState();
-            k=2;
+        simpleExoPlayer.setPlayWhenReady(false);
+        simpleExoPlayer.getPlaybackState();
+        k = 2;
 
     }
 

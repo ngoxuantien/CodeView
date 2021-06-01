@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/mainddd"
-    android:background="@color/black"
-    tools:context=".view.VideoActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
+        <variable
+            name="videoUser"
+            type="com.example.codeview.model.VideoUser" />
+    </data>
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/play_video"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/cardview_dark_background"
-        android:backgroundTint="@color/black"
+        android:id="@+id/mainddd"
+        android:background="@color/black"
+        tools:context=".view.VideoActivity">
 
-        app:controller_layout_id="@layout/play_video"
-        app:fastforward_increment="10000"
-        app:player_layout_id="@layout/exo_simple_player_view"
 
-        app:resize_mode="fixed_width"
-        app:rewind_increment="10000"
-        tools:layout_editor_absoluteX="-120dp"
-        tools:layout_editor_absoluteY="32dp" />
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/play_video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_dark_background"
+            android:backgroundTint="@color/black"
 
-    <ProgressBar
+            app:controller_layout_id="@layout/play_video"
+            app:fastforward_increment="10000"
+            app:player_layout_id="@layout/exo_simple_player_view"
+
+            app:resize_mode="fixed_width"
+            app:rewind_increment="10000"
+            tools:layout_editor_absoluteX="-120dp"
+            tools:layout_editor_absoluteY="32dp" />
+
+        <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,23 +53,23 @@
             android:src="@drawable/group_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    <androidx.cardview.widget.CardView
-        app:cardCornerRadius="300dp"
-        android:id="@+id/cardview3"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="141dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <ImageView
-            android:id="@+id/imageView2"
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="300dp"
+            android:id="@+id/cardview3"
             android:layout_width="46dp"
             android:layout_height="46dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="141dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
 
-            app:srcCompat="@drawable/group_16" />
-    </androidx.cardview.widget.CardView>
+                app:srcCompat="@drawable/group_16" />
+        </androidx.cardview.widget.CardView>
 
 
 
@@ -71,7 +80,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="155dp"
-            android:text="Diego Guadalupe"
+            android:text="@{videoUser.videoNameUser}"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -98,109 +107,132 @@
                 app:srcCompat="@drawable/group" />
         </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/videoName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="119dp"
-        android:text="Música para relax house"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/videoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="119dp"
+            android:text="@{videoUser.videoName}"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView4"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="68dp"
-            android:layout_marginLeft="68dp"
+            android:layout_marginTop="667dp"
             android:layout_marginEnd="265dp"
-            android:layout_marginRight="265dp"
-            android:layout_marginBottom="39dp"
+            android:layout_marginBottom="25dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/group_15" />
+            app:layout_constraintTop_toTopOf="@+id/play_video">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/group_15" />
 
-            android:id="@+id/comment"
-            android:layout_width="28dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@{videoUser.ConvertVideoNumberLike()}"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="39dp"
+            android:layout_marginTop="667dp"
+            android:layout_marginBottom="25dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/burbuja_de_dialogo" />
+            app:layout_constraintTop_toTopOf="@+id/play_video">
+
+            <ImageView
+                android:id="@+id/comment"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/burbuja_de_dialogo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@{videoUser.ConvertVideoNumberCommert()}"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="275dp"
-            android:layout_marginLeft="275dp"
+            android:layout_marginTop="667dp"
             android:layout_marginEnd="66dp"
-            android:layout_marginRight="66dp"
-            android:layout_marginBottom="39dp"
+            android:layout_marginBottom="45dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/marcador" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-
-
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="104dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/videoName">
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="340dp"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Lo mejor de la música y donde podemos aprender para…"
-            android:textColor="@color/white" />
+            android:layout_marginStart="15dp"
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="10dp"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="104dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/videoName">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{videoUser.videoContent}"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="más"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="85dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="85dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+        </LinearLayout>
 
 
 
 
-       <androidx.recyclerview.widget.RecyclerView
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

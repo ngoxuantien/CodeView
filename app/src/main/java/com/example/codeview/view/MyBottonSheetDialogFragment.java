@@ -29,9 +29,9 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
     private List<Comment> responselist;
     private List<Comment> test;
     CommentAdapter commentAdapter;
-    ImageView commentSend ;
+    ImageView commentSend;
     String name;
-    TextView commentText ;
+    TextView commentText;
 
     public static MyBottonSheetDialogFragment newInstance() {
         MyBottonSheetDialogFragment myBottonSheetDialogFragment = new MyBottonSheetDialogFragment();
@@ -45,13 +45,13 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
         BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-        bottomSheetDialog = new BottomSheetDialog(getContext(),
-                R.style.BottomSheetDialogTheme);
+        bottomSheetDialog = new BottomSheetDialog(getContext(),R.style.BottomSheetDialogTheme);
+
         View viewDialog = LayoutInflater.from(getContext()).inflate(R.layout.layout_bottom_sheet_fragment, null);
 
-       commentSend = viewDialog.findViewById(R.id.sendText);
+        commentSend = viewDialog.findViewById(R.id.sendText);
 
-      commentText = viewDialog.findViewById(R.id.commentText);
+        commentText = viewDialog.findViewById(R.id.commentText);
 
 
         responselist = new ArrayList<>();
@@ -90,12 +90,13 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
         return bottomSheetDialog;
 
     }
-    private void setPostComment(){
+
+    private void setPostComment() {
 
     }
 
     private void setRecyclerviewComment(RecyclerView recyclerView, List<Comment> commentList) {
-       commentAdapter = new CommentAdapter(getContext(), commentList);
+        commentAdapter = new CommentAdapter(getContext(), commentList);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));

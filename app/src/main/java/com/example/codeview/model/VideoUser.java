@@ -7,6 +7,9 @@ public class VideoUser {
     private String videoName,videoContent,videoImageUser,videoNameUser;
     private List<String> listCategoryVideo;
 
+    public VideoUser() {
+    }
+
     public int getVideoNumberOfLike() {
         return videoNumberOfLike;
     }
@@ -18,12 +21,22 @@ public class VideoUser {
     public int getVideoNumberOfComment() {
         return videoNumberOfComment;
     }
+    public String ConvertVideoNumberCommert(){
+        String videoNumberOfComment;
+        videoNumberOfComment=this.videoNumberOfComment+"";
+        return videoNumberOfComment;
+    }
+    public String ConvertVideoNumberLike(){
+        String videoNumberlike;
+        videoNumberlike=this.videoNumberOfLike+"";
+        return videoNumberlike;
+    }
 
     public void setVideoNumberOfComment(int videoNumberOfComment) {
         this.videoNumberOfComment = videoNumberOfComment;
     }
 
-    public VideoUser(int videoId, int videoNumberOfLike, int videoNumberOfComment, String videoName, String videoContent, String videoImageUser, String videoNameUser, List<String> listCategoryVideo) {
+    public VideoUser(int videoId, int videoNumberOfLike, int videoNumberOfComment, String videoName, String videoContent, String videoImageUser, String videoNameUser) {
         this.videoId = videoId;
         this.videoNumberOfLike = videoNumberOfLike;
         this.videoNumberOfComment = videoNumberOfComment;
@@ -31,7 +44,7 @@ public class VideoUser {
         this.videoContent = videoContent;
         this.videoImageUser = videoImageUser;
         this.videoNameUser = videoNameUser;
-        this.listCategoryVideo = listCategoryVideo;
+
     }
 
     public VideoUser(int videoId, String videoName, String videoContent, String videoImageUser, String videoNameUser, List<String> listCategoryVideo) {
