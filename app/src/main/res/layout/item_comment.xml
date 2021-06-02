@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+    <data>
+        <variable
+            name="comment"
+            type="com.example.codeview.model.Comment" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,10 +34,11 @@
         android:orientation="vertical">
 
         <TextView
+
             android:id="@+id/commentName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Léa Antonella"
+            android:text="@{comment.commentName}"
             android:textColor="#667b90"
             android:textSize="11sp"
             android:textStyle="normal" />
@@ -46,8 +53,7 @@
                 android:layout_width="232dp"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="5sp"
-                android:text="Lorem ipsum dolor sit amet,consectetur
-adipisci elit"
+                android:text="@{comment.commentContent}"
                 android:textColor="#000000"
                 android:textSize="13sp"
                 android:textStyle="normal" />
@@ -70,7 +76,7 @@ adipisci elit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="100" />
+                    android:text="@{comment.commentLike}" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -88,7 +94,7 @@ adipisci elit"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="21dp"
                 android:lineSpacingExtra="7sp"
-                android:text="13h"
+                android:text="@{comment.commentTime}"
                 android:textColor="#667b90"
                 android:textSize="11sp"
                 android:textStyle="normal" />
@@ -158,3 +164,4 @@ adipisci elit"
 
 
 </LinearLayout>
+</layout>
