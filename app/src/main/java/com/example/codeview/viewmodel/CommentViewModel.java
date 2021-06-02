@@ -16,7 +16,7 @@ public class CommentViewModel extends AndroidViewModel {
     private List<Comment> commentList;
     private List<Comment> responselist;
     private List<Comment> test;
-    private MutableLiveData<Comment> commentListMu = new MutableLiveData<>();
+    public MutableLiveData<Comment> commentListMu = new MutableLiveData<>();
 
 
     public CommentViewModel(@NonNull Application application) {
@@ -38,12 +38,14 @@ public class CommentViewModel extends AndroidViewModel {
         commentList.add(new Comment(3, 4, 5, 3, "hoahoah", "hohohl", "23", responselist));
         commentList.add(new Comment(4, 4, 5, 3, "h", "hohohl", "23", responselist));
         commentList.add(new Comment(5, 4, 5, 3, "h", "hohohl", "23", test));
-        return commentList;
 
+return commentList;
     }
 
     public void getListComment() {
-        commentListMu = (MutableLiveData<Comment>) getComment();
+for(Comment comment:getComment()){
+    commentListMu.setValue(comment);
+}
 
     }
 

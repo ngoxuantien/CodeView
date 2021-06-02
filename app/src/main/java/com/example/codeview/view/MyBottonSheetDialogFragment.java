@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ import com.example.codeview.R;
 import com.example.codeview.adapter.CommentAdapter;
 import com.example.codeview.databinding.LayoutBottomSheetFragmentBinding;
 import com.example.codeview.model.Comment;
+import com.example.codeview.viewmodel.CommentViewModel;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -26,15 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
-    private RecyclerView recyclerView;
-    private List<Comment> commentList;
-    private List<Comment> responselist;
-    private List<Comment> test;
+    private CommentViewModel commentViewModel;
     LayoutBottomSheetFragmentBinding layoutBottomSheetFragmentBinding;
-    CommentAdapter commentAdapter;
-    ImageView commentSend;
-    String name;
-    TextView commentText;
 
     public static MyBottonSheetDialogFragment newInstance() {
         MyBottonSheetDialogFragment myBottonSheetDialogFragment = new MyBottonSheetDialogFragment();
@@ -48,62 +43,31 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
         BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-        bottomSheetDialog = new BottomSheetDialog(getContext(),R.style.BottomSheetDialogTheme);
+        bottomSheetDialog = new BottomSheetDialog(getContext(), R.style.BottomSheetDialogTheme);
 
-      layoutBottomSheetFragmentBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()),R.layout.layout_bottom_sheet_fragment,null,false);
-
-
-//        responselist = new ArrayList<>();
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        responselist.add(new Comment(3, 4, 5, 3, "h", "hohohl", "23"));
-//        test = null;
-//        commentList = new ArrayList<>();
-//        commentList.add(new Comment(3, 4, 5, 3, "hoahoah", "hohohl", "23", responselist));
-//        commentList.add(new Comment(4, 4, 5, 3, "h", "hohohl", "23", responselist));
-//        commentList.add(new Comment(5, 4, 5, 3, "h", "hohohl", "23", test));
-//
-//        recyclerView = viewDialog.findViewById(R.id.comments_list);
-
-    //    setRecyclerviewComment(recyclerView, commentList);
-
+        layoutBottomSheetFragmentBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.layout_bottom_sheet_fragment, null, false);
+        commentViewModel = new ViewModelProvider(requireActivity()).get(CommentViewModel.class);
+        commentViewModel.getListComment();
 
         bottomSheetDialog.setContentView(layoutBottomSheetFragmentBinding.getRoot());
-//        commentSend.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                commentList.get(1).getReponsList().add(new Comment(3, 4, 5, 3, "h", commentText.getText().toString(), "23"));
-//                commentAdapter.notifyDataSetChanged();
-////                for(int i=0;i<commentList.size();i++){
-////                    if(name.equals(commentList.get(i).getCommentId()+"")){
-////
-////                    }
-////                }
-//            }
-//        });
+
+
+        change();
         return bottomSheetDialog;
 
     }
-    private void setRecyclerView(List<Comment> list){
-        layoutBottomSheetFragmentBinding.setAdapter(new CommentAdapter(getContext(),list));
+
+    private void change() {
+        commentViewModel.commentListMu.observe(this, comment -> setRecyclerView(commentViewModel.getComment()));
+    }
+
+    private void setRecyclerView(List<Comment> list) {
+        layoutBottomSheetFragmentBinding.setAdapter(new CommentAdapter(getContext(), list));
     }
 
     private void setPostComment() {
 
     }
 
-//    private void setRecyclerviewComment(RecyclerView recyclerView, List<Comment> commentList) {
-//        commentAdapter = new CommentAdapter(getContext(), commentList);
-//
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-//        recyclerView.setAdapter(commentAdapter);
-//
-//    }
 }
 
