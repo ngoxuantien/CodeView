@@ -8,6 +8,10 @@
         <variable
             name="videoUser"
             type="com.example.codeview.model.VideoUser" />
+
+        <variable
+            name="videoActivity"
+            type="com.example.codeview.view.VideoActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,6 +48,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:onClick="@{()->videoActivity.clickBack()}"
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -160,7 +165,8 @@
             app:layout_constraintTop_toTopOf="@+id/play_video">
 
             <ImageView
-                android:id="@+id/comment"
+
+              android:onClick="@{()->videoActivity.clickComment()}"
                 android:layout_width="28dp"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/burbuja_de_dialogo" />
@@ -169,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@{videoUser.ConvertVideoNumberCommert()}"
+                android:text="@{videoUser.ConvertVideoNumberComment()}"
                 android:textColor="@color/white" />
         </LinearLayout>
 

@@ -21,7 +21,7 @@ public class VideoUser {
     public int getVideoNumberOfComment() {
         return videoNumberOfComment;
     }
-    public String ConvertVideoNumberCommert(){
+    public String ConvertVideoNumberComment(){
         String videoNumberOfComment;
         videoNumberOfComment=this.videoNumberOfComment+"";
         return videoNumberOfComment;

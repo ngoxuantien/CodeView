@@ -1,113 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#00F4F1F1"
-    android:orientation="vertical">
-
-    <ImageView
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:src="@drawable/group_13" />
-
-    <LinearLayout
+<layout>
+    
+    <data>
+        <variable
+            name="adapter"
+            type="com.example.codeview.adapter.CommentAdapter" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_above="@+id/bottomcoment"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/backgrow"
+        android:layout_height="wrap_content"
+        android:background="#00F4F1F1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/no_of_comments"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="30.8k comments"
-            android:textColor="#000000"
-            android:textSize="13sp"
-            android:textStyle="normal" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/comments_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/item_comment" />
-
-        </ScrollView>
-    </LinearLayout>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottomcoment"
-        android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white">
-
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:src="@drawable/group_13" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_above="@+id/bottomcoment"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="13dp"
-            android:src="@drawable/group_16"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@drawable/backgrow"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/commentText"
-            android:layout_width="247dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="57dp"
-            android:layout_marginLeft="57dp"
-            android:paddingTop="6dp"
-android:paddingBottom="6dp"
-            android:layout_marginEnd="56dp"
-            android:layout_marginRight="56dp"
-android:paddingLeft="15dp"
-            android:background="@drawable/backgrow_editext"
-            android:drawableRight="@drawable/ic_choseicon"
-            android:hint="   Añadir comentario"
-android:paddingRight="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/no_of_comments"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="30.8k comments"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                android:textStyle="normal" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginRight="14dp"
-            android:layout_marginBottom="13dp"
-            android:backgroundTint="#9f5ed9"
-            app:cardCornerRadius="300dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:adapter="@{adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:id="@+id/comments_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_comment" />
+
+            </ScrollView>
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomcoment"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
 
             <ImageView
-                android:id="@+id/sendText"
-                android:layout_width="wrap_content"
+                android:id="@+id/imageView5"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="13dp"
+                android:src="@drawable/group_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/commentText"
+                android:layout_width="247dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/send" />
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginStart="57dp"
+                android:layout_marginLeft="57dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
+                android:paddingLeft="15dp"
+                android:background="@drawable/backgrow_editext"
+                android:drawableRight="@drawable/ic_choseicon"
+                android:hint="   Añadir comentario"
+                android:paddingRight="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="13dp"
+                android:backgroundTint="#9f5ed9"
+                app:cardCornerRadius="300dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/sendText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/send" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

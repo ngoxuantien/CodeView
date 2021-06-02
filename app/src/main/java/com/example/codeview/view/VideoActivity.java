@@ -40,21 +40,21 @@ public class VideoActivity extends AppCompatActivity {
     PlayerView playerView;
     ProgressBar progressBar;
     SimpleExoPlayer simpleExoPlayer;
-    boolean flag = false;
     int k = 1;
     VideoUser videoUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        videoUser = new VideoUser(1,20,20,"tien","ta la ngo xua tien dayhahahahah","dsds","Ngô Xuân Tiến");
+        videoUser = new VideoUser(1, 20, 20, "tien", "ta la ngo xua tien dayhahahahah", "dsds", "Ngô Xuân Tiến");
 
         ActivityVideoBinding activityVideoBinding = DataBindingUtil.setContentView(this, R.layout.activity_video);
         activityVideoBinding.setVideoUser(videoUser);
+        activityVideoBinding.setVideoActivity(this);
 
 
-        //   setContentView(R.layout.activity_video);
-        comment = findViewById(R.id.comment);
+
+
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);
 
@@ -131,24 +131,21 @@ public class VideoActivity extends AppCompatActivity {
         });
 
 
-        comment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
 
-                MyBottonSheetDialogFragment sheetDialogFragment = MyBottonSheetDialogFragment.newInstance();
-                sheetDialogFragment.show(getSupportFragmentManager(), sheetDialogFragment.getTag());
-
-                simpleExoPlayer.setPlayWhenReady(false);
-                simpleExoPlayer.getPlaybackState();
-            }
-        });
-
+    public void clickComment() {
+        MyBottonSheetDialogFragment sheetDialogFragment = MyBottonSheetDialogFragment.newInstance();
+        sheetDialogFragment.show(getSupportFragmentManager(), sheetDialogFragment.getTag());
+        simpleExoPlayer.setPlayWhenReady(false);
+        simpleExoPlayer.getPlaybackState();
+    }
+    public void clickBack(){
+        onBackPressed();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
 
         simpleExoPlayer.setPlayWhenReady(false);
         simpleExoPlayer.getPlaybackState();
