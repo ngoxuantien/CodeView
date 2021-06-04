@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout>
-
     <data>
-
         <variable
             name="videoUser"
             type="com.example.codeview.model.VideoUser" />
@@ -133,14 +131,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="68dp"
-            android:layout_marginTop="667dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="265dp"
             android:layout_marginBottom="25dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/play_video">
+            app:layout_constraintTop_toTopOf="@+id/linearLayout3">
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -159,13 +157,13 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="667dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="25dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/play_video">
+            app:layout_constraintTop_toTopOf="@+id/linearLayout3">
 
             <ImageView
 
@@ -188,13 +186,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="275dp"
-            android:layout_marginTop="667dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="66dp"
             android:layout_marginBottom="45dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linearLayout3"
             app:srcCompat="@drawable/marcador" />
 
         <LinearLayout

@@ -157,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="7sp"
-                    android:text="Ver respuestas (10)"
+                    android:text="@{numberOfComment}"
                     android:textColor="#667b90"
                     android:textSize="11sp"
                     android:textStyle="normal" />

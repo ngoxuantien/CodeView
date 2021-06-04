@@ -49,7 +49,7 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView commentImage;
 
-        TextView commentContent,commentName,commentLike,commentTime;
+        TextView commentContent,commentName,commentLike,commentTisme;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             commentName = itemView.findViewById(R.id.commentName);
