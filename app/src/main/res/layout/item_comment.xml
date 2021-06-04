@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <import type="android.view.View"/>
+        <variable
+            name="roll"
+            type="Boolean" />
         <variable
             name="comment"
             type="com.example.codeview.model.Comment" />
+        <variable
+            name="clickCollape"
+            type="com.example.codeview.util.CustomClickListener" />
+        <variable
+            name="view"
+            type="Boolean" />
+        <variable
+            name="numberOfComment"
+            type="String" />
+        <variable
+            name="adapter"
+            type="com.example.codeview.adapter.CommentResponseAdapter" />
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -76,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@{comment.commentLike}" />
+                    android:text="" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -135,6 +151,8 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:visibility="@{view ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{()->clickCollape.setClickCollapse()}"
                     android:id="@+id/collapse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -145,6 +163,7 @@
                     android:textStyle="normal" />
 
                 <ImageView
+                    android:visibility="@{view ? View.VISIBLE : View.GONE}"
                     android:id="@+id/iconCollapse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -153,6 +172,10 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:nestedScrollingEnabled="false"
+                android:adapter="@{adapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:visibility="@{roll ? View.GONE:View.VISIBLE}"
                 android:id="@+id/recyclerviewResponse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
