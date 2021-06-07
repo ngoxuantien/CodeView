@@ -60,7 +60,7 @@ public class VideoActivity extends AppCompatActivity {
 
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Uri videoUrl = Uri.parse("https://dzbbmecpa0hd2.cloudfront.net/video/original/2019/04/19/13/1555655593_3f2c69bcf3a428d7.mp4");
+        Uri videoUrl = Uri.parse("http://xmiolive.e14538a7.viettel-cdn.vn/hbo.smil/chunklist_b1500000.m3u8");
         LoadControl loadControl = new DefaultLoadControl();
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
