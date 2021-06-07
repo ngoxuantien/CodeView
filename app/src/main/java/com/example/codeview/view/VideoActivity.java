@@ -26,13 +26,16 @@ import com.google.android.exoplayer2.extractor.ExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
+import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
 public class VideoActivity extends AppCompatActivity {
@@ -53,14 +56,12 @@ public class VideoActivity extends AppCompatActivity {
         activityVideoBinding.setVideoActivity(this);
 
 
-
-
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);
 
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Uri videoUrl = Uri.parse("http://xmiolive.e14538a7.viettel-cdn.vn/hbo.smil/chunklist_b1500000.m3u8");
+        Uri videoUrl = Uri.parse("https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
         LoadControl loadControl = new DefaultLoadControl();
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
@@ -69,7 +70,11 @@ public class VideoActivity extends AppCompatActivity {
         simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(VideoActivity.this, trackSelector, loadControl);
         DefaultHttpDataSourceFactory factory = new DefaultHttpDataSourceFactory("exoplayer_video");
         ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-        MediaSource mediaSource = new ExtractorMediaSource(videoUrl, factory, extractorsFactory, null, null);
+
+
+
+        MediaSource mediaSource = buildMediaSource(videoUrl);
+
         playerView.setPlayer(simpleExoPlayer);
         playerView.setKeepScreenOn(true);
         simpleExoPlayer.prepare(mediaSource);
@@ -132,6 +137,12 @@ public class VideoActivity extends AppCompatActivity {
 
 
     }
+    private MediaSource buildMediaSource(Uri uri) {
+        DataSource.Factory dataSourceFactory =
+                new DefaultDataSourceFactory(this, "exoplayer-codelab");
+        return new HlsMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(uri);
+    }
 
     public void clickComment() {
         MyBottonSheetDialogFragment sheetDialogFragment = MyBottonSheetDialogFragment.newInstance();
@@ -139,7 +150,8 @@ public class VideoActivity extends AppCompatActivity {
         simpleExoPlayer.setPlayWhenReady(false);
         simpleExoPlayer.getPlaybackState();
     }
-    public void clickBack(){
+
+    public void clickBack() {
         onBackPressed();
     }
 
