@@ -15,21 +15,20 @@ import retrofit2.Response;
 
 
 public class MovieRepository {
-    private VideoAcount videoAcount;
+
 public VideoAcount getMoview(View view){
     ApiInterface apiInterface = ApiClient.getIntance().create(ApiInterface.class);
- videoAcount= new VideoAcount();
-    apiInterface.getPost("1").enqueue(new Callback<VideoAcount>() {
+    final VideoAcount[] videoAcount34 = {new VideoAcount()};
+    apiInterface.getPost().enqueue(new Callback<VideoAcount>() {
         @Override
         public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
-         videoAcount= response.body();
+        videoAcount34[0] = (VideoAcount)response.body();
         }
-
         @Override
         public void onFailure(Call<VideoAcount> call, Throwable t) {
 
         }
     });
-    return videoAcount;
+    return videoAcount34[0];
 }
 }

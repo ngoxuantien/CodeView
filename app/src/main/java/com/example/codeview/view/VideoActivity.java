@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.codeview.R;
 import com.example.codeview.databinding.ActivityVideoBinding;
+import com.example.codeview.model.VideoAcount;
 import com.example.codeview.model.VideoUser;
 import com.example.codeview.repository.MovieRepository;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -62,7 +64,8 @@ public class VideoActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         movieRepository = new MovieRepository();
         /// thử chỗ này
-
+        Toast toast= Toast.makeText(VideoActivity.this,"hoa"+movieRepository.getMoview(activityVideoBinding.getRoot()).getCode(),   Toast.LENGTH_SHORT);
+        toast.show();
 
 
 
