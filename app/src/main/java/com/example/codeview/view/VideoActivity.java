@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import com.example.codeview.R;
 import com.example.codeview.databinding.ActivityVideoBinding;
 import com.example.codeview.model.VideoUser;
+import com.example.codeview.repository.MovieRepository;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -45,6 +46,7 @@ public class VideoActivity extends AppCompatActivity {
     SimpleExoPlayer simpleExoPlayer;
     int k = 1;
     VideoUser videoUser;
+    MovieRepository movieRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,10 @@ public class VideoActivity extends AppCompatActivity {
 
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);
+        movieRepository = new MovieRepository();
+        /// thử chỗ này
+
+
 
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
