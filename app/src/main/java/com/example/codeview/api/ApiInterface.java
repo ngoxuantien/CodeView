@@ -4,10 +4,21 @@ import com.example.codeview.model.VideoAcount;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Part;
-import retrofit2.http.Path;
+import retrofit2.http.POST;
 
 public interface ApiInterface {
     @GET("videos/1")
     Call<VideoAcount>getPost();
+
+//    @GET("hashtags/12?id_video=2")
+//    Call<>getHashtags
+//     @GET("comments/video?id_video=1")
+//    Call<>getCommentParent
+//     @GET("comments/parent?id_parent=1")
+//    Call<>getGetComment
+//     @POST("comments/like")
+//    Call<>postCommentsLike
+//     @POST("comments")
+//    Call<>postComment
+
 }

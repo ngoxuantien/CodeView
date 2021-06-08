@@ -1,13 +1,18 @@
 package com.example.codeview.repository;
 
+import android.util.Log;
 import android.view.View;
+
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.codeview.api.ApiClient;
 import com.example.codeview.api.ApiInterface;
 import com.example.codeview.model.VideoAcount;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,19 +21,48 @@ import retrofit2.Response;
 
 public class MovieRepository {
 
-public VideoAcount getMoview(View view){
-    ApiInterface apiInterface = ApiClient.getIntance().create(ApiInterface.class);
-    final VideoAcount[] videoAcount34 = {new VideoAcount()};
-    apiInterface.getPost().enqueue(new Callback<VideoAcount>() {
-        @Override
-        public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
-        videoAcount34[0] = (VideoAcount)response.body();
-        }
-        @Override
-        public void onFailure(Call<VideoAcount> call, Throwable t) {
+    private ApiInterface apiInterface;
 
-        }
-    });
-    return videoAcount34[0];
-}
+//    public VideoAcount getMoview(View view) {
+//        ApiInterface apiInterface = ApiClient.getIntance().create(ApiInterface.class);
+//        final VideoAcount[] videoAcount34 = {new VideoAcount()};
+//        apiInterface.getPost().enqueue(new Callback<VideoAcount>() {
+//            @Override
+//            public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
+//                if (response.isSuccessful()) {
+//                    videoAcount34[0] = response.body();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<VideoAcount> call, Throwable t) {
+//
+//            }
+//        });
+//        return videoAcount34[0];
+//    }
+
+    public MovieRepository() {
+        apiInterface = ApiClient.getIntance().create(ApiInterface.class);
+    }
+
+    public MutableLiveData<VideoAcount> getVideo() {
+        MutableLiveData<VideoAcount> videoAcountMutableLiveData = new MutableLiveData<>();
+        apiInterface.getPost().enqueue(new Callback<VideoAcount>() {
+            @Override
+            public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
+                if (response.isSuccessful()) {
+                    videoAcountMutableLiveData.setValue(response.body());
+                    Log.d("erro",response.body().getData().getLinkVideo());
+                }
+            }
+            @Override
+            public void onFailure(Call<VideoAcount> call, Throwable t) {
+
+            }
+        });
+        return videoAcountMutableLiveData;
+    }
+
+
 }

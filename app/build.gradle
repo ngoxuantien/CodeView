@@ -7,7 +7,6 @@ android {
     buildToolsVersion "30.0.3"
 
 
-
     defaultConfig {
         applicationId "com.example.codeview"
         minSdkVersion 21
@@ -28,8 +27,8 @@ android {
     }
     compileOptions {
 
-            targetCompatibility = "8"
-            sourceCompatibility = "8"
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -46,8 +45,10 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+    implementation 'com.google.code.gson:gson:2.6.2'
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
 }

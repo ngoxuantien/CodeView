@@ -39,13 +39,13 @@ public class CommentViewModel extends AndroidViewModel {
         commentList.add(new Comment(4, 4, 5, 3, "h", "hohohl", "23", responselist));
         commentList.add(new Comment(5, 4, 5, 3, "h", "hohohl", "23", test));
 
-return commentList;
+        return commentList;
     }
 
     public void getListComment() {
-for(Comment comment:getComment()){
-    commentListMu.setValue(comment);
-}
+        for (Comment comment : getComment()) {
+            commentListMu.setValue(comment);
+        }
 
     }
 

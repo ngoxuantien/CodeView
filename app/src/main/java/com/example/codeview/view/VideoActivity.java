@@ -2,9 +2,14 @@ package com.example.codeview.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -12,10 +17,13 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.codeview.R;
+import com.example.codeview.api.ApiClient;
+import com.example.codeview.api.ApiInterface;
 import com.example.codeview.databinding.ActivityVideoBinding;
 import com.example.codeview.model.VideoAcount;
 import com.example.codeview.model.VideoUser;
 import com.example.codeview.repository.MovieRepository;
+import com.example.codeview.viewmodel.VideoUserViewModel;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -41,6 +49,10 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class VideoActivity extends AppCompatActivity {
     ImageView comment;
     PlayerView playerView;
@@ -48,7 +60,10 @@ public class VideoActivity extends AppCompatActivity {
     SimpleExoPlayer simpleExoPlayer;
     int k = 1;
     VideoUser videoUser;
-    MovieRepository movieRepository;
+    //   MovieRepository movieRepository;
+    private Handler handler;
+    VideoUserViewModel videoUserViewModel;
+    private String linkvideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,19 +73,25 @@ public class VideoActivity extends AppCompatActivity {
         ActivityVideoBinding activityVideoBinding = DataBindingUtil.setContentView(this, R.layout.activity_video);
         activityVideoBinding.setVideoUser(videoUser);
         activityVideoBinding.setVideoActivity(this);
+        activityVideoBinding.setLifecycleOwner(this);
+
+        videoUserViewModel = new ViewModelProviders().of(this).get(VideoUserViewModel.class);
+        videoUserViewModel.getVideoAcount();
 
 
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);
-        movieRepository = new MovieRepository();
-        /// thử chỗ này
-        Toast toast= Toast.makeText(VideoActivity.this,"hoa"+movieRepository.getMoview(activityVideoBinding.getRoot()).getCode(),   Toast.LENGTH_SHORT);
-        toast.show();
 
+
+        /// thử chỗ này
+        //  movieRepository = new MovieRepository();
+        ;
+        //  movieRepository.getMoview(activityVideoBinding.getRoot());
 
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Uri videoUrl = Uri.parse("https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
+
+
         LoadControl loadControl = new DefaultLoadControl();
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
@@ -81,13 +102,21 @@ public class VideoActivity extends AppCompatActivity {
         ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
 
 
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                changes();
+                Uri videoUrl = Uri.parse(linkvideo);
 
-        MediaSource mediaSource = buildMediaSource(videoUrl);
+                MediaSource mediaSource = buildMediaSource(videoUrl);
+                playerView.setPlayer(simpleExoPlayer);
+                playerView.setKeepScreenOn(true);
+                simpleExoPlayer.prepare(mediaSource);
+                simpleExoPlayer.setPlayWhenReady(true);
+            }
+        }, 150);
 
-        playerView.setPlayer(simpleExoPlayer);
-        playerView.setKeepScreenOn(true);
-        simpleExoPlayer.prepare(mediaSource);
-        simpleExoPlayer.setPlayWhenReady(true);
         simpleExoPlayer.addListener(new Player.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
@@ -142,10 +171,22 @@ public class VideoActivity extends AppCompatActivity {
             public void onSeekProcessed() {
 
             }
+
         });
 
 
     }
+
+    private void changes() {
+
+        videoUserViewModel.videoAcount12.observe(this, videoAcount -> setM(videoAcount.getData().getLinkVideo()));
+    }
+
+    public void setM(String m) {
+        linkvideo = m;
+
+    }
+
     private MediaSource buildMediaSource(Uri uri) {
         DataSource.Factory dataSourceFactory =
                 new DefaultDataSourceFactory(this, "exoplayer-codelab");
