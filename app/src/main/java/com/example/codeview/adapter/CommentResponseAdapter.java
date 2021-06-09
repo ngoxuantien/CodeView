@@ -36,7 +36,7 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
 
      //   Glide.with(context).load(commentListResponse.get(position).getCommentImage()).into(holder.commentImage);
         holder.commentName.setText("");
-        holder.commentTime.setText("");
+        holder.commentTime.setText(commentListResponse.get(position).TextTime());
         holder.commentContent.setText(commentListResponse.get(position).getContent());
         holder.commentLike.setText(commentListResponse.get(position).getLike()+"");
     }
