@@ -1,10 +1,9 @@
 package com.example.codeview.api;
 
-import com.example.codeview.model.VideoAcount;
+import com.example.codeview.model.Video.VideoAcount;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 
 public interface ApiInterface {
     @GET("videos/1")

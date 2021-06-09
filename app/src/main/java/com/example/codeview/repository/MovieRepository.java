@@ -1,18 +1,12 @@
 package com.example.codeview.repository;
 
 import android.util.Log;
-import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.codeview.api.ApiClient;
 import com.example.codeview.api.ApiInterface;
-import com.example.codeview.model.VideoAcount;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import com.example.codeview.model.Video.VideoAcount;
 
 import retrofit2.Call;
 import retrofit2.Callback;

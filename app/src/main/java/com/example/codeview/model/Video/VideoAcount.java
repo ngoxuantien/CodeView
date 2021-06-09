@@ -1,7 +1,8 @@
 
-package com.example.codeview.model;
+package com.example.codeview.model.Video;
 
 
+import com.example.codeview.model.Video.Data;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

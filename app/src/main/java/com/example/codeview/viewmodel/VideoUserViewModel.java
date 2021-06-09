@@ -1,13 +1,12 @@
 package com.example.codeview.viewmodel;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.codeview.model.VideoAcount;
+import com.example.codeview.model.Video.VideoAcount;
 import com.example.codeview.repository.MovieRepository;
 
 public class VideoUserViewModel extends AndroidViewModel {

@@ -1,5 +1,5 @@
 
-package com.example.codeview.model;
+package com.example.codeview.model.Video;
 
 
 import com.google.gson.annotations.Expose;
