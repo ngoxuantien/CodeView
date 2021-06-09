@@ -1,15 +1,13 @@
 
-package com.example.codeview.model.Dggg;
+package com.example.codeview.model.comment;
 
 import java.util.List;
-
-
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class Hoa {
+public class Comment {
 
     @SerializedName("code")
     @Expose

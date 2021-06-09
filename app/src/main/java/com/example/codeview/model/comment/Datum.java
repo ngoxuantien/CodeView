@@ -1,5 +1,5 @@
 
-package com.example.codeview.model.Dggg;
+package com.example.codeview.model.comment;
 
 
 import com.google.gson.annotations.Expose;
@@ -26,6 +26,15 @@ public class Datum {
     @SerializedName("discriminator")
     @Expose
     private String discriminator;
+    @SerializedName("userResponseDto")
+    @Expose
+    private UserResponseDto userResponseDto;
+    @SerializedName("videoResponseDto")
+    @Expose
+    private Object videoResponseDto;
+    public String convertLike(){
+        return this.like+"";
+    }
 
     public Integer getIdComment() {
         return idComment;
@@ -73,6 +82,22 @@ public class Datum {
 
     public void setDiscriminator(String discriminator) {
         this.discriminator = discriminator;
+    }
+
+    public UserResponseDto getUserResponseDto() {
+        return userResponseDto;
+    }
+
+    public void setUserResponseDto(UserResponseDto userResponseDto) {
+        this.userResponseDto = userResponseDto;
+    }
+
+    public Object getVideoResponseDto() {
+        return videoResponseDto;
+    }
+
+    public void setVideoResponseDto(Object videoResponseDto) {
+        this.videoResponseDto = videoResponseDto;
     }
 
 }
