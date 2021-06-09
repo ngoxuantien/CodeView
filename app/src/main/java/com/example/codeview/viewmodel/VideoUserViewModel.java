@@ -13,7 +13,10 @@ import com.example.codeview.repository.MovieRepository;
 public class VideoUserViewModel extends AndroidViewModel {
     public MutableLiveData<VideoAcount> videoAcount12 = new MutableLiveData<>();
     public MutableLiveData<Channel> channel= new MutableLiveData<>();
+
+
     private MovieRepository movieRepository = new MovieRepository();
+
     public VideoUserViewModel(@NonNull Application application) {
         super(application);
     }
@@ -28,4 +31,7 @@ public class VideoUserViewModel extends AndroidViewModel {
     public void getChannelVideo(String id){
         channel= movieRepository.getChannel(id);
     }
+
+
+
 }

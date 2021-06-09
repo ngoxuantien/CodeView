@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.codeview.api.ApiClient;
 import com.example.codeview.api.ApiInterface;
 import com.example.codeview.model.channel.Channel;
+import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.video.VideoAcount;
 
 import retrofit2.Call;
@@ -75,6 +76,40 @@ public class MovieRepository {
             }
         });
         return channelMutableLiveData;
+    }
+    public MutableLiveData<Comment>getCommentsParent(String id){
+        MutableLiveData<Comment>commentMutableLiveData= new MutableLiveData<>();
+        apiInterface.getCommentsParent(id).enqueue(new Callback<Comment>() {
+            @Override
+            public void onResponse(Call<Comment> call, Response<Comment> response) {
+                if(response.isSuccessful()){
+                    commentMutableLiveData.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Comment> call, Throwable t) {
+
+            }
+        });
+        return commentMutableLiveData;
+    }
+    public MutableLiveData<Comment>getComment(String id){
+        MutableLiveData<Comment> commentMutableLiveData= new MutableLiveData<>();
+        apiInterface.getComments(id).enqueue(new Callback<Comment>() {
+            @Override
+            public void onResponse(Call<Comment> call, Response<Comment> response) {
+                if(response.isSuccessful()){
+                    commentMutableLiveData.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Comment> call, Throwable t) {
+
+            }
+        });
+        return commentMutableLiveData;
     }
 
 

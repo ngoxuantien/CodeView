@@ -10,17 +10,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.codeview.R;
-import com.example.codeview.model.Comment;
+import com.example.codeview.model.comment.Comment;
+import com.example.codeview.model.comment.Datum;
 
 import java.util.List;
 
 public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponseAdapter.ViewHolder> {
     private Context context;
-    private List<Comment> commentListResponse;
+    private List<Datum> commentListResponse;
 
-    public CommentResponseAdapter(Context context, List<Comment> commentListResponse) {
+    public CommentResponseAdapter(Context context, List<Datum> commentListResponse) {
         this.context = context;
         this.commentListResponse = commentListResponse;
     }
@@ -35,10 +35,10 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
     public void onBindViewHolder(@NonNull CommentResponseAdapter.ViewHolder holder, int position) {
 
      //   Glide.with(context).load(commentListResponse.get(position).getCommentImage()).into(holder.commentImage);
-        holder.commentName.setText(commentListResponse.get(position).getCommentName());
-        holder.commentTime.setText(commentListResponse.get(position).getCommentTime());
-        holder.commentContent.setText(commentListResponse.get(position).getCommentContent());
-        holder.commentLike.setText(commentListResponse.get(position).getCommentLike()+"");
+        holder.commentName.setText("");
+        holder.commentTime.setText("");
+        holder.commentContent.setText(commentListResponse.get(position).getContent());
+        holder.commentLike.setText(commentListResponse.get(position).getLike()+"");
     }
 
     @Override

@@ -1,32 +1,37 @@
 package com.example.codeview.adapter;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.codeview.R;
 import com.example.codeview.databinding.ItemCommentBinding;
-import com.example.codeview.model.Comment;
-import com.example.codeview.util.CustomClickListener;
+import com.example.codeview.model.comment.Comment;
+import com.example.codeview.model.comment.Datum;
+import com.example.codeview.view.MyBottonSheetDialogFragment;
+import com.example.codeview.viewmodel.CommentViewModel;
+import com.example.codeview.viewmodel.VideoUserViewModel;
 
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
     private Context context;
-    private List<Comment> commentList;
+    private List<Datum> commentList;
+    private CommentViewModel commentViewModel;
+    private List<Datum>commentResponse;
+private Handler handler;
 
-
-    public CommentAdapter(Context context, List<Comment> commentList) {
+    public CommentAdapter(Context context, List<Datum> commentList) {
         this.context = context;
         this.commentList = commentList;
     }
@@ -41,7 +46,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull CommentAdapter.ViewHolder holder, int position) {
-        final Comment comment = commentList.get(position);
+        final Datum comment = commentList.get(position);
         final boolean[] h = {true};
         holder.itemCommentBinding.setComment(comment);
         holder.bind(comment);
@@ -56,18 +61,27 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                 h[0] = true;
             }
         });
+       commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
+        commentViewModel.getComment(commentList.get(position).getIdComment() + "");
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                commentViewModel.comment.observe((LifecycleOwner) context, comment1 -> commentResponse=comment1.getData());
+                if (commentResponse != null) {
+                    holder.itemCommentBinding.setView(true);
+                    // xét recyclerview
+                    holder.itemCommentBinding.setAdapter(new CommentResponseAdapter(context, commentResponse));
+                    // set test số bình luận của list
+                    holder.itemCommentBinding.setNumberOfComment("Ver respuestas (" + commentResponse.size() + ")");
+                } else {
+                    holder.itemCommentBinding.setView(false);
+
+                }
+            }
+        }, 350);
 
 
-        if (commentList.get(position).getReponsList() != null) {
-            holder.itemCommentBinding.setView(true);
-            // xét recyclerview
-            holder.itemCommentBinding.setAdapter( new CommentResponseAdapter(context,commentList.get(position).getReponsList()));
-            // set test số bình luận của list
-            holder.itemCommentBinding.setNumberOfComment("Ver respuestas (" + commentList.get(position).getReponsList().size() + ")");
-        } else {
-            holder.itemCommentBinding.setView(false);
-
-        }
 
 
 
@@ -82,7 +96,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ItemCommentBinding itemCommentBinding;
-     //   RecyclerView recyclerViewResponse;
+        //   RecyclerView recyclerViewResponse;
 
         public ViewHolder(@NonNull ItemCommentBinding binding) {
             super(binding.getRoot());
@@ -90,13 +104,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         }
 
+
         //// cần tìm hiểu thêm///
         public void bind(Object obj) {
             itemCommentBinding.executePendingBindings();
         }
 
     }
-
 
 
 }

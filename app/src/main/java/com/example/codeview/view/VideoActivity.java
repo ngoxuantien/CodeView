@@ -43,7 +43,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
 public class VideoActivity extends AppCompatActivity {
-    ImageView comment;
+
     PlayerView playerView;
     ProgressBar progressBar;
     SimpleExoPlayer simpleExoPlayer;
@@ -60,7 +60,7 @@ public class VideoActivity extends AppCompatActivity {
         videoUser = new VideoUser(1, 20, 20, "tien", "ta la ngo xua tien dayhahahahah", "dsds", "Ngô Xuân Tiến");
 
         activityVideoBinding = DataBindingUtil.setContentView(this, R.layout.activity_video);
-activityVideoBinding.setVideoUser(videoUser);
+        activityVideoBinding.setVideoUser(videoUser);
         activityVideoBinding.setVideoActivity(this);
         activityVideoBinding.setLifecycleOwner(this);
 
@@ -68,6 +68,7 @@ activityVideoBinding.setVideoUser(videoUser);
         /// chuyền id =1;
         videoUserViewModel.getVideoAcount("1");
         videoUserViewModel.getChannelVideo("1");
+
 
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);
@@ -156,7 +157,7 @@ activityVideoBinding.setVideoUser(videoUser);
     private void changes() {
 
         videoUserViewModel.videoAcount12.observe(this, videoAcount -> setVideo(videoAcount.getData()));
-        videoUserViewModel.channel.observe(this,channel -> setChannel(channel.getData()));
+        videoUserViewModel.channel.observe(this, channel -> setChannel(channel.getData()));
     }
 
 
@@ -164,7 +165,8 @@ activityVideoBinding.setVideoUser(videoUser);
         linkvideo = data.getLinkVideo();
         activityVideoBinding.setVideoChannel(data);
     }
-    public void setChannel(com.example.codeview.model.channel.Data channel){
+
+    public void setChannel(com.example.codeview.model.channel.Data channel) {
         activityVideoBinding.setChannel(channel);
     }
 

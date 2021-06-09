@@ -1,6 +1,7 @@
 package com.example.codeview.api;
 
 import com.example.codeview.model.channel.Channel;
+import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.video.VideoAcount;
 
 import retrofit2.Call;
@@ -13,6 +14,10 @@ public interface ApiInterface {
     Call<VideoAcount>getPost(@Path("id") String id);
     @GET("channels")
     Call<Channel>getChannel(@Query("id_video") String id);
+    @GET("comments/video")
+    Call<Comment> getCommentsParent(@Query("id_video") String id);
+    @GET("comments/parent")
+    Call<Comment> getComments(@Query("id_parent") String id);
 
 //    @GET("hashtags/12?id_video=2")
 //    Call<>getHashtags

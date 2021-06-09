@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View"/>
         <variable
@@ -7,7 +9,7 @@
             type="Boolean" />
         <variable
             name="comment"
-            type="com.example.codeview.model.Comment" />
+            type="com.example.codeview.model.comment.Datum" />
         <variable
             name="clickCollape"
             type="com.example.codeview.util.CustomClickListener" />
@@ -21,10 +23,8 @@
             name="adapter"
             type="com.example.codeview.adapter.CommentResponseAdapter" />
     </data>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
@@ -35,6 +35,7 @@
         app:cardCornerRadius="300dp">
 
         <ImageView
+            app:loadImage="@{comment.userResponseDto.photo}"
             android:id="@+id/commentimage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -54,7 +55,7 @@
             android:id="@+id/commentName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{comment.commentName}"
+            android:text="@{comment.userResponseDto.nickName}"
             android:textColor="#667b90"
             android:textSize="11sp"
             android:textStyle="normal" />
@@ -69,7 +70,7 @@
                 android:layout_width="232dp"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="5sp"
-                android:text="@{comment.commentContent}"
+                android:text="@{comment.content}"
                 android:textColor="#000000"
                 android:textSize="13sp"
                 android:textStyle="normal" />
@@ -92,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="" />
+                    android:text="@{comment.convertLike()}" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -110,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="21dp"
                 android:lineSpacingExtra="7sp"
-                android:text="@{comment.commentTime}"
+                android:text="6"
                 android:textColor="#667b90"
                 android:textSize="11sp"
                 android:textStyle="normal" />
