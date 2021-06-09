@@ -1,13 +1,13 @@
 
-package com.example.codeview.model.Video;
+package com.example.codeview.model.channel;
 
 
-import com.example.codeview.model.Video.Data;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class VideoAcount {
+public class Channel {
 
     @SerializedName("code")
     @Expose

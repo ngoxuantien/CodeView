@@ -6,7 +6,8 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.codeview.api.ApiClient;
 import com.example.codeview.api.ApiInterface;
-import com.example.codeview.model.Video.VideoAcount;
+import com.example.codeview.model.channel.Channel;
+import com.example.codeview.model.video.VideoAcount;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,9 +41,9 @@ public class MovieRepository {
         apiInterface = ApiClient.getIntance().create(ApiInterface.class);
     }
 
-    public MutableLiveData<VideoAcount> getVideo() {
+    public MutableLiveData<VideoAcount> getVideo(String id) {
         MutableLiveData<VideoAcount> videoAcountMutableLiveData = new MutableLiveData<>();
-        apiInterface.getPost().enqueue(new Callback<VideoAcount>() {
+        apiInterface.getPost(id).enqueue(new Callback<VideoAcount>() {
             @Override
             public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
                 if (response.isSuccessful()) {
@@ -56,6 +57,24 @@ public class MovieRepository {
             }
         });
         return videoAcountMutableLiveData;
+    }
+
+    public MutableLiveData<Channel>getChannel(String id){
+        MutableLiveData<Channel>channelMutableLiveData= new MutableLiveData<>();
+        apiInterface.getChannel(id).enqueue(new Callback<Channel>() {
+            @Override
+            public void onResponse(Call<Channel> call, Response<Channel> response) {
+                if ((response.isSuccessful())){
+                    channelMutableLiveData.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Channel> call, Throwable t) {
+
+            }
+        });
+        return channelMutableLiveData;
     }
 
 

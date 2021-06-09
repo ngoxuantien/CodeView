@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="videoUser"
             type="com.example.codeview.model.VideoUser" />
@@ -9,11 +13,15 @@
         <variable
             name="videoActivity"
             type="com.example.codeview.view.VideoActivity" />
+        <variable
+            name="videoChannel"
+            type="com.example.codeview.model.video.Data" />
+        <variable
+            name="channel"
+            type="com.example.codeview.model.channel.Data" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/mainddd"
         android:layout_width="match_parent"
@@ -74,7 +82,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="46dp"
                 android:layout_height="46dp"
-
+                app:loadImage="@{channel.photo}"
                 app:srcCompat="@drawable/group_16" />
         </androidx.cardview.widget.CardView>
 
@@ -86,7 +94,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="155dp"
-            android:text="@{videoUser.videoNameUser}"
+            android:text="@{channel.nickName}"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -119,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="119dp"
-            android:text="@{videoUser.videoName}"
+            android:text="@{videoChannel.title}"
             android:textColor="@color/white"
             android:textSize="17sp"
             android:textStyle="normal"
@@ -150,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@{videoUser.ConvertVideoNumberLike()}"
+                android:text="@{videoChannel.convertTotalLike()}"
                 android:textColor="@color/white" />
         </LinearLayout>
 
@@ -176,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@{videoUser.ConvertVideoNumberComment()}"
+                android:text="@{videoChannel.convertTotalComment()}"
                 android:textColor="@color/white" />
         </LinearLayout>
 
@@ -215,7 +223,7 @@
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@{videoUser.videoContent}"
+                android:text="@{videoChannel.description}"
                 android:textColor="@color/white" />
 
 

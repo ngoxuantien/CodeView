@@ -14,6 +14,8 @@ import android.widget.ProgressBar;
 
 import com.example.codeview.R;
 import com.example.codeview.databinding.ActivityVideoBinding;
+import com.example.codeview.model.channel.Channel;
+import com.example.codeview.model.video.Data;
 import com.example.codeview.model.VideoUser;
 import com.example.codeview.viewmodel.VideoUserViewModel;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -50,19 +52,22 @@ public class VideoActivity extends AppCompatActivity {
     private Handler handler;
     VideoUserViewModel videoUserViewModel;
     private String linkvideo;
+    ActivityVideoBinding activityVideoBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         videoUser = new VideoUser(1, 20, 20, "tien", "ta la ngo xua tien dayhahahahah", "dsds", "Ngô Xuân Tiến");
 
-        ActivityVideoBinding activityVideoBinding = DataBindingUtil.setContentView(this, R.layout.activity_video);
-
+        activityVideoBinding = DataBindingUtil.setContentView(this, R.layout.activity_video);
+activityVideoBinding.setVideoUser(videoUser);
         activityVideoBinding.setVideoActivity(this);
         activityVideoBinding.setLifecycleOwner(this);
 
         videoUserViewModel = new ViewModelProviders().of(this).get(VideoUserViewModel.class);
-        videoUserViewModel.getVideoAcount();
+        /// chuyền id =1;
+        videoUserViewModel.getVideoAcount("1");
+        videoUserViewModel.getChannelVideo("1");
 
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);
@@ -87,7 +92,7 @@ public class VideoActivity extends AppCompatActivity {
                 simpleExoPlayer.prepare(mediaSource);
                 simpleExoPlayer.setPlayWhenReady(true);
             }
-        }, 150);
+        }, 350);
         simpleExoPlayer.addListener(new Player.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
@@ -150,16 +155,17 @@ public class VideoActivity extends AppCompatActivity {
 
     private void changes() {
 
-        videoUserViewModel.videoAcount12.observe(this, videoAcount -> setM(videoAcount.getData().getLinkVideo()));
+        videoUserViewModel.videoAcount12.observe(this, videoAcount -> setVideo(videoAcount.getData()));
+        videoUserViewModel.channel.observe(this,channel -> setChannel(channel.getData()));
     }
 
-    public void setM(String m) {
-        linkvideo = m;
 
+    public void setVideo(Data data) {
+        linkvideo = data.getLinkVideo();
+        activityVideoBinding.setVideoChannel(data);
     }
-
-    public void setUser(){
-
+    public void setChannel(com.example.codeview.model.channel.Data channel){
+        activityVideoBinding.setChannel(channel);
     }
 
     private MediaSource buildMediaSource(Uri uri) {

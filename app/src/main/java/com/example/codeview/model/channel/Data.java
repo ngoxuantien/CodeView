@@ -1,5 +1,5 @@
 
-package com.example.codeview.model.Channel;
+package com.example.codeview.model.channel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

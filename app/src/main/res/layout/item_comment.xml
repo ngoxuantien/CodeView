@@ -7,7 +7,7 @@
             type="Boolean" />
         <variable
             name="comment"
-            type="com.example.codeview.model.CommentT" />
+            type="com.example.codeview.model.Comment" />
         <variable
             name="clickCollape"
             type="com.example.codeview.util.CustomClickListener" />

@@ -1,7 +1,5 @@
 
-package com.example.codeview.model.Video;
-
-
+package com.example.codeview.model.video;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -59,6 +57,13 @@ public class Data {
     @SerializedName("linkVerticalCoverImage")
     @Expose
     private String linkVerticalCoverImage;
+    public String convertTotalLike(){
+        return totalLike+"";
+
+    }
+    public String convertTotalComment(){
+        return totalComment+"";
+    }
 
     public Integer getIdVideo() {
         return idVideo;
