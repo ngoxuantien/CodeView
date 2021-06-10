@@ -9,16 +9,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.codeview.R;
 import com.example.codeview.adapter.HashTagAdapter;
 import com.example.codeview.databinding.ActivityVideoBinding;
-import com.example.codeview.model.channel.Channel;
 import com.example.codeview.model.hashtag.Datum;
 import com.example.codeview.model.video.Data;
-import com.example.codeview.model.VideoUser;
 import com.example.codeview.viewmodel.VideoUserViewModel;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -28,8 +25,6 @@ import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.extractor.ExtractorsFactory;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
@@ -42,7 +37,6 @@ import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
 import java.util.List;
 
@@ -52,7 +46,7 @@ public class VideoActivity extends AppCompatActivity {
     ProgressBar progressBar;
     SimpleExoPlayer simpleExoPlayer;
     int k = 1;
-    VideoUser videoUser;
+
     private Handler handler;
     VideoUserViewModel videoUserViewModel;
     private String linkvideo;
@@ -61,10 +55,10 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        videoUser = new VideoUser(1, 20, 20, "tien", "ta la ngo xua tien dayhahahahah", "dsds", "Ngô Xuân Tiến");
+
 
         activityVideoBinding = DataBindingUtil.setContentView(this, R.layout.activity_video);
-        activityVideoBinding.setVideoUser(videoUser);
+
         activityVideoBinding.setVideoActivity(this);
         activityVideoBinding.setLifecycleOwner(this);
 
@@ -164,7 +158,7 @@ public class VideoActivity extends AppCompatActivity {
 
         videoUserViewModel.videoAcount12.observe(this, videoAcount -> setVideo(videoAcount.getData()));
         videoUserViewModel.channel.observe(this, channel -> setChannel(channel.getData()));
-        videoUserViewModel.hashTag.observe(this,hashTag -> setHashTagRecyclerview(hashTag.getData()));
+        videoUserViewModel.hashTag.observe(this, hashTag -> setHashTagRecyclerview(hashTag.getData()));
     }
 
 
@@ -176,8 +170,9 @@ public class VideoActivity extends AppCompatActivity {
     public void setChannel(com.example.codeview.model.channel.Data channel) {
         activityVideoBinding.setChannel(channel);
     }
-    public void setHashTagRecyclerview(List<Datum> hashtag){
-        activityVideoBinding.setAdapter(new HashTagAdapter(this,hashtag));
+
+    public void setHashTagRecyclerview(List<Datum> hashtag) {
+        activityVideoBinding.setAdapter(new HashTagAdapter(this, hashtag));
     }
 
     private MediaSource buildMediaSource(Uri uri) {

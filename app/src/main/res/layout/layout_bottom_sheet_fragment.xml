@@ -5,6 +5,9 @@
         <variable
             name="adapter"
             type="com.example.codeview.adapter.CommentAdapter" />
+        <variable
+            name="comment"
+            type="com.example.codeview.view.MyBottonSheetDialogFragment" />
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -90,6 +93,7 @@
                 android:drawableRight="@drawable/ic_choseicon"
                 android:hint="   Añadir comentario"
                 android:paddingRight="10dp"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +114,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:onClick="@{()->comment.onclick()}"
                     android:id="@+id/sendText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

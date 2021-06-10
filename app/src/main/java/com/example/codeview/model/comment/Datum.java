@@ -36,8 +36,31 @@ public class Datum {
     @SerializedName("userResponseDto")
     @Expose
     private UserResponseDto userResponseDto;
+
+    public Datum(Integer idComment, String content, Integer like, String createAt, String updateAt, String discriminator, UserResponseDto userResponseDto, Object videoResponseDto) {
+        this.idComment = idComment;
+        this.content = content;
+        this.like = like;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.discriminator = discriminator;
+        this.userResponseDto = userResponseDto;
+        this.videoResponseDto = videoResponseDto;
+    }
+
+    public Datum(Integer idComment, String content, Integer like, String createAt, String updateAt, String discriminator) {
+        this.idComment = idComment;
+        this.content = content;
+        this.like = like;
+        this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.discriminator = discriminator;
+    }
+
+
     @SerializedName("videoResponseDto")
     @Expose
+
     private Object videoResponseDto;
 
     public String convertLike() {

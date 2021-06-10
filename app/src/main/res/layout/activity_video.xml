@@ -10,9 +10,7 @@
             name="adapter"
             type="com.example.codeview.adapter.HashTagAdapter" />
 
-        <variable
-            name="videoUser"
-            type="com.example.codeview.model.VideoUser" />
+
 
         <variable
             name="videoActivity"

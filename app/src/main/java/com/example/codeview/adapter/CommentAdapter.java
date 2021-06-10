@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.lifecycle.ViewModelStoreOwner;
@@ -63,12 +64,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         });
         commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
         commentViewModel.getComment(commentList.get(position).getIdComment() + "");
-        handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        // set id coment cha vào livedata
+        commentViewModel.setIdCommentParent(commentList.get(position).getIdComment()+"");
+        commentViewModel.comment.observe((LifecycleOwner) context, new Observer<Comment>() {
             @Override
-            public void run() {
-                commentViewModel.comment.observe((LifecycleOwner) context, comment1 -> commentResponse = comment1.getData());
-                if (commentResponse != null) {
+            public void onChanged(Comment comment) {
+                commentResponse =comment.getData();
+                if (commentResponse.size() != 0) {
                     holder.itemCommentBinding.setView(true);
                     // xét recyclerview
                     holder.itemCommentBinding.setAdapter(new CommentResponseAdapter(context, commentResponse));
@@ -79,7 +81,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
                 }
             }
-        }, 350);
+        });
+
+
 
 
     }

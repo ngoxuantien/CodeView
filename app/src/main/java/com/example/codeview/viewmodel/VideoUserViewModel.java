@@ -13,8 +13,8 @@ import com.example.codeview.repository.MovieRepository;
 
 public class VideoUserViewModel extends AndroidViewModel {
     public MutableLiveData<VideoAcount> videoAcount12 = new MutableLiveData<>();
-    public MutableLiveData<Channel> channel= new MutableLiveData<>();
-public MutableLiveData<HashTag> hashTag= new MutableLiveData<>();
+    public MutableLiveData<Channel> channel = new MutableLiveData<>();
+    public MutableLiveData<HashTag> hashTag = new MutableLiveData<>();
 
 
     private MovieRepository movieRepository = new MovieRepository();
@@ -24,18 +24,17 @@ public MutableLiveData<HashTag> hashTag= new MutableLiveData<>();
     }
 
 
-
     public void getVideoAcount(String id) {
         videoAcount12 = movieRepository.getVideo(id);
     }
-    public void getChannelVideo(String id){
-        channel= movieRepository.getChannel(id);
+
+    public void getChannelVideo(String id) {
+        channel = movieRepository.getChannel(id);
     }
 
-    public void getHashTag(String id){
-        hashTag=movieRepository.getHashTag(id);
+    public void getHashTag(String id) {
+        hashTag = movieRepository.getHashTag(id);
     }
-
 
 
 }
