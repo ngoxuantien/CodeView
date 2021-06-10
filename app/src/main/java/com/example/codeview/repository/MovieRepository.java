@@ -8,6 +8,7 @@ import com.example.codeview.api.ApiClient;
 import com.example.codeview.api.ApiInterface;
 import com.example.codeview.model.channel.Channel;
 import com.example.codeview.model.comment.Comment;
+import com.example.codeview.model.hashtag.HashTag;
 import com.example.codeview.model.video.VideoAcount;
 
 import retrofit2.Call;
@@ -19,24 +20,7 @@ public class MovieRepository {
 
     private ApiInterface apiInterface;
 
-//    public VideoAcount getMoview(View view) {
-//        ApiInterface apiInterface = ApiClient.getIntance().create(ApiInterface.class);
-//        final VideoAcount[] videoAcount34 = {new VideoAcount()};
-//        apiInterface.getPost().enqueue(new Callback<VideoAcount>() {
-//            @Override
-//            public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
-//                if (response.isSuccessful()) {
-//                    videoAcount34[0] = response.body();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<VideoAcount> call, Throwable t) {
-//
-//            }
-//        });
-//        return videoAcount34[0];
-//    }
+
 
     public MovieRepository() {
         apiInterface = ApiClient.getIntance().create(ApiInterface.class);
@@ -94,6 +78,7 @@ public class MovieRepository {
         });
         return commentMutableLiveData;
     }
+
     public MutableLiveData<Comment>getComment(String id){
         MutableLiveData<Comment> commentMutableLiveData= new MutableLiveData<>();
         apiInterface.getComments(id).enqueue(new Callback<Comment>() {
@@ -110,6 +95,24 @@ public class MovieRepository {
             }
         });
         return commentMutableLiveData;
+    }
+
+    public MutableLiveData<HashTag>getHashTag(String id){
+        MutableLiveData<HashTag> hashTagMutableLiveData= new MutableLiveData<>();
+        apiInterface.getHashTag(id).enqueue(new Callback<HashTag>() {
+            @Override
+            public void onResponse(Call<HashTag> call, Response<HashTag> response) {
+                if(response.isSuccessful()){
+                    hashTagMutableLiveData.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HashTag> call, Throwable t) {
+
+            }
+        });
+        return hashTagMutableLiveData;
     }
 
 

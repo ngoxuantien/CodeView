@@ -28,8 +28,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     private Context context;
     private List<Datum> commentList;
     private CommentViewModel commentViewModel;
-    private List<Datum>commentResponse;
-private Handler handler;
+    private List<Datum> commentResponse;
+    private Handler handler;
 
     public CommentAdapter(Context context, List<Datum> commentList) {
         this.context = context;
@@ -61,13 +61,13 @@ private Handler handler;
                 h[0] = true;
             }
         });
-       commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
+        commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
         commentViewModel.getComment(commentList.get(position).getIdComment() + "");
         handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                commentViewModel.comment.observe((LifecycleOwner) context, comment1 -> commentResponse=comment1.getData());
+                commentViewModel.comment.observe((LifecycleOwner) context, comment1 -> commentResponse = comment1.getData());
                 if (commentResponse != null) {
                     holder.itemCommentBinding.setView(true);
                     // xét recyclerview
@@ -80,10 +80,6 @@ private Handler handler;
                 }
             }
         }, 350);
-
-
-
-
 
 
     }

@@ -7,15 +7,21 @@
     <data>
 
         <variable
+            name="adapter"
+            type="com.example.codeview.adapter.HashTagAdapter" />
+
+        <variable
             name="videoUser"
             type="com.example.codeview.model.VideoUser" />
 
         <variable
             name="videoActivity"
             type="com.example.codeview.view.VideoActivity" />
+
         <variable
             name="videoChannel"
             type="com.example.codeview.model.video.Data" />
+
         <variable
             name="channel"
             type="com.example.codeview.model.channel.Data" />
@@ -241,9 +247,11 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <androidx.recyclerview.widget.RecyclerView
-
+               android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="wrap_content"
+                android:adapter="@{adapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
 
 

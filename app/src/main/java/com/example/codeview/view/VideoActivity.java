@@ -13,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.codeview.R;
+import com.example.codeview.adapter.HashTagAdapter;
 import com.example.codeview.databinding.ActivityVideoBinding;
 import com.example.codeview.model.channel.Channel;
+import com.example.codeview.model.hashtag.Datum;
 import com.example.codeview.model.video.Data;
 import com.example.codeview.model.VideoUser;
 import com.example.codeview.viewmodel.VideoUserViewModel;
@@ -42,6 +44,8 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
+import java.util.List;
+
 public class VideoActivity extends AppCompatActivity {
 
     PlayerView playerView;
@@ -68,7 +72,7 @@ public class VideoActivity extends AppCompatActivity {
         /// chuyền id =1;
         videoUserViewModel.getVideoAcount("1");
         videoUserViewModel.getChannelVideo("1");
-
+        videoUserViewModel.getHashTag("1");
 
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);
@@ -78,8 +82,10 @@ public class VideoActivity extends AppCompatActivity {
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
         simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(VideoActivity.this, trackSelector, loadControl);
-        DefaultHttpDataSourceFactory factory = new DefaultHttpDataSourceFactory("exoplayer_video");
-        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+
+
+//        DefaultHttpDataSourceFactory factory = new DefaultHttpDataSourceFactory("exoplayer_video");
+//        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
         handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -158,6 +164,7 @@ public class VideoActivity extends AppCompatActivity {
 
         videoUserViewModel.videoAcount12.observe(this, videoAcount -> setVideo(videoAcount.getData()));
         videoUserViewModel.channel.observe(this, channel -> setChannel(channel.getData()));
+        videoUserViewModel.hashTag.observe(this,hashTag -> setHashTagRecyclerview(hashTag.getData()));
     }
 
 
@@ -168,6 +175,9 @@ public class VideoActivity extends AppCompatActivity {
 
     public void setChannel(com.example.codeview.model.channel.Data channel) {
         activityVideoBinding.setChannel(channel);
+    }
+    public void setHashTagRecyclerview(List<Datum> hashtag){
+        activityVideoBinding.setAdapter(new HashTagAdapter(this,hashtag));
     }
 
     private MediaSource buildMediaSource(Uri uri) {
