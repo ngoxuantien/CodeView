@@ -2,6 +2,7 @@
 <layout>
     
     <data>
+
         <variable
             name="adapter"
             type="com.example.codeview.adapter.CommentAdapter" />
@@ -33,6 +34,7 @@
             android:orientation="vertical">
 
             <TextView
+
                 android:id="@+id/no_of_comments"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
@@ -47,6 +49,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.recyclerview.widget.RecyclerView
+
                     android:adapter="@{adapter}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:id="@+id/comments_list"
@@ -66,6 +69,7 @@
             android:background="@color/white">
 
             <ImageView
+
                 android:id="@+id/imageView5"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
@@ -121,6 +125,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/send" />
             </androidx.cardview.widget.CardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

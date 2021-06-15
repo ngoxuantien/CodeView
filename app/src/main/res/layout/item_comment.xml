@@ -18,7 +18,9 @@
         <variable
             name="clickCollape"
             type="com.example.codeview.util.CustomClickListener" />
-
+<variable
+    name="clickResponse"
+    type="com.example.codeview.util.CustomClickResponse" />
         <variable
             name="view"
             type="Boolean" />
@@ -30,6 +32,7 @@
         <variable
             name="adapter"
             type="com.example.codeview.adapter.CommentResponseAdapter" />
+
     </data>
 
     <LinearLayout
@@ -130,9 +133,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="7sp"
+                    android:onClick="@{()->clickResponse.setResponse()}"
                     android:text="Responder"
                     android:textColor="#667b90"
-
                     android:textSize="11sp"
                     android:textStyle="normal" />
 

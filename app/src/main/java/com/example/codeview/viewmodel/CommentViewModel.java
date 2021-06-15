@@ -21,9 +21,13 @@ public class CommentViewModel extends AndroidViewModel {
     public MutableLiveData<Comment> commentsParent = new MutableLiveData<>();
     public MutableLiveData<Comment> comment = new MutableLiveData<>();
     public MutableLiveData<String> idCommentParent= new MutableLiveData<>();
+
+    // id comment cha và comment thêm
+    public MutableLiveData<Datum>commentAdd= new MutableLiveData<>();
+    public MutableLiveData<String>idCommentRespons= new MutableLiveData<>();
+
     private MovieRepository movieRepository = new MovieRepository();
 
-    private Comment commentadd;
 
 
     public CommentViewModel(@NonNull Application application) {
@@ -35,6 +39,16 @@ public class CommentViewModel extends AndroidViewModel {
         commentsParent = movieRepository.getCommentsParent(id);
 
     }
+    public void setIcCommentResponse(String id){
+        idCommentRespons.setValue(id);
+
+    }
+    public String getIdCommentResponse(){
+     return  idCommentRespons.getValue();
+    }
+    public Datum getCommentAdd(){
+        return commentAdd.getValue();
+    }
 
     public void getComment(String id) {
         comment = movieRepository.getComment(id);
@@ -45,12 +59,32 @@ public class CommentViewModel extends AndroidViewModel {
     }
 
 
-    public void addComment(Comment comment) {
+
+    public void addComment() {
+        String id= "";
+        id= idCommentRespons.getValue();
         Datum datum = new Datum(5, "haohaoahoahaoaoha", 2, "", "", "",null,null);
-        List<Datum> list = comment.getData();
-        list.add(datum);
-        comment.setData(list);
-        commentsParent.setValue(comment);
+
+
+        if(id.equals("0")!=true){
+            commentAdd.setValue(datum);
+            Comment commentRespons= comment.getValue();
+            List<Datum> list = commentRespons.getData();
+            list.add(datum);
+            commentRespons.setData(list);
+          comment.setValue(commentRespons);
+        }else {
+            Comment comment= commentsParent.getValue();
+            List<Datum> list = comment.getData();
+            list.add(0,datum);
+            comment.setData(list);
+            commentsParent.setValue(comment);
+
+        }
+
+
+
     }
+
 
 }

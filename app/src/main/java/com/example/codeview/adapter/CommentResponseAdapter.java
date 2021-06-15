@@ -8,11 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.codeview.R;
 import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.comment.Datum;
+import com.example.codeview.view.MyBottonSheetDialogFragment;
 
 import java.util.List;
 
@@ -39,6 +41,13 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
         holder.commentTime.setText(commentListResponse.get(position).TextTime());
         holder.commentContent.setText(commentListResponse.get(position).getContent());
         holder.commentLike.setText(commentListResponse.get(position).getLike()+"");
+        holder.commentLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyBottonSheetDialogFragment sheetDialogFragment = MyBottonSheetDialogFragment.newInstance();
+                sheetDialogFragment.show(((AppCompatActivity)context).getSupportFragmentManager(), sheetDialogFragment.getTag());
+            }
+        });
     }
 
     @Override

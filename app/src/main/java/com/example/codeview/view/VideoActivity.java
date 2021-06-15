@@ -85,6 +85,7 @@ public class VideoActivity extends AppCompatActivity {
             @Override
             public void run() {
                 changes();
+
                 Uri videoUrl = Uri.parse(linkvideo);
 
                 MediaSource mediaSource = buildMediaSource(videoUrl);
