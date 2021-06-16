@@ -6,10 +6,12 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -23,6 +25,7 @@ import com.example.codeview.R;
 import com.example.codeview.databinding.ItemCommentBinding;
 import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.comment.Datum;
+import com.example.codeview.view.BottomSheetReportFragment;
 import com.example.codeview.view.MyBottonSheetDialogFragment;
 import com.example.codeview.viewmodel.CommentViewModel;
 import com.example.codeview.viewmodel.VideoUserViewModel;
@@ -35,10 +38,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     private CommentViewModel commentViewModel;
     private List<Datum> commentResponse;
     private Handler handler;
+    private Activity activity;
 
-    public CommentAdapter(Context context, List<Datum> commentList) {
+    public CommentAdapter(Context context, List<Datum> commentList, Activity activity) {
         this.context = context;
         this.commentList = commentList;
+        this.activity = activity;
     }
 
     @NonNull
@@ -71,28 +76,27 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         commentViewModel.getComment(commentList.get(position).getIdComment() + "");
 
 
-
         //////////////////////////////////////////////////////////////////////////////////////////////
-        commentViewModel.setIdCommentParent(commentList.get(position).getIdComment()+"");
-        holder.itemCommentBinding.setClickResponse(()->{
+        holder.itemCommentBinding.setClickResponse(() -> {
             // set id coment cha vào livedata
             commentViewModel.setIcCommentResponse(commentList.get(position).getIdComment() + "");
-            Toast toast=Toast.makeText(context, "thử nhiệm test",   Toast.LENGTH_SHORT);
+            holder.showKeyboard();
+            Toast toast = Toast.makeText(context, "thử nhiệm test", Toast.LENGTH_SHORT);
             toast.show();
-        //
+            //
+        });
+        holder.itemCommentBinding.setClickReport(() -> {
+            BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
+            bottomSheetReportFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
         });
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
         commentViewModel.comment.observe((LifecycleOwner) context, new Observer<Comment>() {
             @Override
             public void onChanged(Comment comment) {
-                commentResponse =comment.getData();
-                if(commentViewModel.getIdCommentResponse().equals(commentList.get(position).getIdComment() + "")){
+                commentResponse = comment.getData();
 
-                   commentResponse.add(commentViewModel.getCommentAdd());
-                }
                 if (commentResponse.size() != 0) {
                     holder.itemCommentBinding.setView(true);
                     // xét recyclerview
@@ -105,8 +109,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                 }
             }
         });
-
-
 
 
     }
@@ -132,15 +134,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         public void bind(Object obj) {
             itemCommentBinding.executePendingBindings();
         }
-        public void hideKeyboard(Activity activity) {
-            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
-            //Find the currently focused view, so we can grab the correct window token from it.
-            View view = activity.getCurrentFocus();
-            //If no view currently has focus, create a new one, just so we can grab a window token from it
-            if (view == null) {
-                view = new View(activity);
-            }
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+        public void showKeyboard() {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,3);
         }
 
     }

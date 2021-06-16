@@ -18,9 +18,15 @@
         <variable
             name="clickCollape"
             type="com.example.codeview.util.CustomClickListener" />
-<variable
-    name="clickResponse"
-    type="com.example.codeview.util.CustomClickResponse" />
+
+        <variable
+            name="clickResponse"
+            type="com.example.codeview.util.CustomClickResponse" />
+
+        <variable
+            name="clickReport"
+            type="com.example.codeview.util.CustomClickReport" />
+
         <variable
             name="view"
             type="Boolean" />
@@ -144,9 +150,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:lineSpacingExtra="7sp"
+                    android:onClick="@{()->clickReport.setClickReport()}"
                     android:text="Denunciar"
                     android:textColor="#667b90"
-
                     android:textSize="11sp"
                     android:textStyle="normal" />
 

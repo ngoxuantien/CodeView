@@ -64,9 +64,9 @@ public class VideoActivity extends AppCompatActivity {
 
         videoUserViewModel = new ViewModelProviders().of(this).get(VideoUserViewModel.class);
         /// chuyền id =1;
-        videoUserViewModel.getVideoAcount("1");
-        videoUserViewModel.getChannelVideo("1");
-        videoUserViewModel.getHashTag("1");
+        videoUserViewModel.getVideoAcount("2");
+        videoUserViewModel.getChannelVideo("2");
+        videoUserViewModel.getHashTag("2");
 
         playerView = findViewById(R.id.play_video);
         progressBar = findViewById(R.id.progress_bar);

@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    
+
     <data>
+
+        <variable
+            name="commentViewModel"
+            type="com.example.codeview.viewmodel.CommentViewModel" />
 
         <variable
             name="adapter"
             type="com.example.codeview.adapter.CommentAdapter" />
+
         <variable
             name="comment"
             type="com.example.codeview.view.MyBottonSheetDialogFragment" />
     </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -50,11 +56,11 @@
 
                 <androidx.recyclerview.widget.RecyclerView
 
-                    android:adapter="@{adapter}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:id="@+id/comments_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:adapter="@{adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_comment" />
 
             </ScrollView>
@@ -88,15 +94,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="57dp"
                 android:layout_marginLeft="57dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
                 android:layout_marginEnd="56dp"
                 android:layout_marginRight="56dp"
-                android:paddingLeft="15dp"
                 android:background="@drawable/backgrow_editext"
                 android:drawableRight="@drawable/ic_choseicon"
                 android:hint="   Añadir comentario"
+                android:paddingLeft="15dp"
+                android:paddingTop="6dp"
                 android:paddingRight="10dp"
+                android:paddingBottom="6dp"
+                android:text="@={commentViewModel.inputComnet}"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -118,11 +125,11 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:onClick="@{()->comment.onclick()}"
                     android:id="@+id/sendText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:onClick="@{()->comment.onclick()}"
                     android:src="@drawable/send" />
             </androidx.cardview.widget.CardView>
 

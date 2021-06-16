@@ -3,6 +3,7 @@ package com.example.codeview.viewmodel;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
@@ -23,6 +24,11 @@ public class VideoUserViewModel extends AndroidViewModel {
         super(application);
     }
 
+    public int getIdvideo(){
+      return videoAcount12.getValue().getData().getIdVideo();
+    }
+
+
 
     public void getVideoAcount(String id) {
         videoAcount12 = movieRepository.getVideo(id);
@@ -35,6 +41,8 @@ public class VideoUserViewModel extends AndroidViewModel {
     public void getHashTag(String id) {
         hashTag = movieRepository.getHashTag(id);
     }
+
+
 
 
 }
