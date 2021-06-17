@@ -65,9 +65,9 @@ public class MovieRepository {
         return channelMutableLiveData;
     }
 
-    public MutableLiveData<Comment> getCommentsParent(String id) {
+    public MutableLiveData<Comment> getCommentsParent(String id,String idUser) {
         MutableLiveData<Comment> commentMutableLiveData = new MutableLiveData<>();
-        apiInterface.getCommentsParent(id).enqueue(new Callback<Comment>() {
+        apiInterface.getCommentsParent(id,idUser).enqueue(new Callback<Comment>() {
             @Override
             public void onResponse(Call<Comment> call, Response<Comment> response) {
                 if (response.isSuccessful()) {
@@ -83,9 +83,9 @@ public class MovieRepository {
         return commentMutableLiveData;
     }
 
-    public MutableLiveData<Comment> getComment(String id) {
+    public MutableLiveData<Comment> getComment(String id,String idUser) {
         MutableLiveData<Comment> commentMutableLiveData = new MutableLiveData<>();
-        apiInterface.getComments(id).enqueue(new Callback<Comment>() {
+        apiInterface.getComments(id,idUser).enqueue(new Callback<Comment>() {
             @Override
             public void onResponse(Call<Comment> call, Response<Comment> response) {
                 if (response.isSuccessful()) {

@@ -86,7 +86,7 @@ public class VideoActivity extends AppCompatActivity {
             public void run() {
                 changes();
 
-                Uri videoUrl = Uri.parse(linkvideo);
+                Uri videoUrl = Uri.parse("https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
 
                 MediaSource mediaSource = buildMediaSource(videoUrl);
                 playerView.setPlayer(simpleExoPlayer);
@@ -94,7 +94,7 @@ public class VideoActivity extends AppCompatActivity {
                 simpleExoPlayer.prepare(mediaSource);
                 simpleExoPlayer.setPlayWhenReady(true);
             }
-        }, 350);
+        }, 450);
         simpleExoPlayer.addListener(new Player.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {

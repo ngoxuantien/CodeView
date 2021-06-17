@@ -24,10 +24,12 @@ public interface ApiInterface {
     Call<Channel> getChannel(@Query("id_video") String id);
 
     @GET("comments/video")
-    Call<Comment> getCommentsParent(@Query("id_video") String id);
+    Call<Comment> getCommentsParent(@Query("id_video") String id ,
+                                    @Query("id_user") String iduser);
 
     @GET("comments/parent")
-    Call<Comment> getComments(@Query("id_parent") String id);
+    Call<Comment> getComments(@Query("id_parent") String id,
+                              @Query("id_user") String iduser);
 
     @GET(" hashtags/12")
     Call<HashTag> getHashTag(@Query("id_video") String id);
@@ -38,15 +40,6 @@ public interface ApiInterface {
     Call<ResponseCommentSend> postComment(@Body CommentPost commentPost);
 
 
-//    @GET("hashtags/12?id_video=2")
-//    Call<>getHashtags
-//     @GET("comments/video?id_video=1")
-//    Call<>getCommentParent
-//     @GET("comments/parent?id_parent=1")
-//    Call<>getGetComment
-//     @POST("comments/like")
-//    Call<>postCommentsLike
-//     @POST("comments")
-//    Call<>postComment
+
 
 }

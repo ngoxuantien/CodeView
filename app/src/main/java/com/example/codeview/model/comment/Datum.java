@@ -35,7 +35,22 @@ public class Datum {
     private String discriminator;
     @SerializedName("userResponseDto")
     @Expose
+
+
+
+
     private UserResponseDto userResponseDto;
+    @SerializedName("isLiked")
+    @Expose
+    private  int isLike;
+
+    public int getIsLike() {
+        return isLike;
+    }
+
+    public void setIsLike(int isLike) {
+        this.isLike = isLike;
+    }
 
     public Datum(Integer idComment, String content, Integer like, String createAt, String updateAt, String discriminator, UserResponseDto userResponseDto, Object videoResponseDto) {
         this.idComment = idComment;

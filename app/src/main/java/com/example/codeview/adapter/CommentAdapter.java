@@ -73,14 +73,15 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             }
         });
         commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
-        commentViewModel.getComment(commentList.get(position).getIdComment() + "");
+        // phải fix id user
+        commentViewModel.getComment(commentList.get(position).getIdComment() + "","2");
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////
         holder.itemCommentBinding.setClickResponse(() -> {
             // set id coment cha vào livedata
             commentViewModel.setIcCommentResponse(commentList.get(position).getIdComment() + "");
-            holder.showKeyboard();
+        //    holder.showKeyboard();
             Toast toast = Toast.makeText(context, "thử nhiệm test", Toast.LENGTH_SHORT);
             toast.show();
             //

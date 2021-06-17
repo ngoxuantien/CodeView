@@ -29,6 +29,9 @@ public class UserResponseDto {
     @SerializedName("status")
     @Expose
     private Boolean status;
+    @SerializedName("isLiked")
+    @Expose
+    private  int isLike;
 
     public Integer getIdUser() {
         return idUser;

@@ -56,7 +56,7 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
         videoUserViewModel = new ViewModelProvider(requireActivity()).get(VideoUserViewModel.class);
         // cái cũ
 
-        commentViewModel.getCommentsParent("2");
+        commentViewModel.getCommentsParent("2","2");
         commentViewModel.setIcCommentResponse("0");
         layoutBottomSheetFragmentBinding.setComment(MyBottonSheetDialogFragment.this);
 
@@ -83,7 +83,7 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
     public void onclick() {
 
         commentViewModel.addComment( videoUserViewModel.getIdvideo(),3,commentViewModel.getinput());
-        commentViewModel.getCommentsParent("2");
+        commentViewModel.getCommentsParent("2","2");
         change();
 
 

@@ -37,8 +37,8 @@ public class CommentViewModel extends AndroidViewModel {
     }
 
 
-    public void getCommentsParent(String id) {
-        commentsParent = movieRepository.getCommentsParent(id);
+    public void getCommentsParent(String id,String idUser) {
+        commentsParent = movieRepository.getCommentsParent(id,idUser);
 
     }
 
@@ -52,8 +52,8 @@ public class CommentViewModel extends AndroidViewModel {
     }
 
 
-    public void getComment(String id) {
-        comment = movieRepository.getComment(id);
+    public void getComment(String id,String idUser) {
+        comment = movieRepository.getComment(id,idUser);
     }
 
     public String getinput() {
