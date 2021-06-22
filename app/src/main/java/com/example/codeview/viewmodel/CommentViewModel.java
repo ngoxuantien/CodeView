@@ -1,23 +1,14 @@
 package com.example.codeview.viewmodel;
 
 import android.app.Application;
-import android.content.Intent;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.Bindable;
-import androidx.databinding.InverseBindingAdapter;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.codeview.model.comment.Comment;
-import com.example.codeview.model.comment.CommentPost;
-import com.example.codeview.model.comment.Datum;
+import com.example.codeview.model.putmodel.CommentPost;
 import com.example.codeview.repository.MovieRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CommentViewModel extends AndroidViewModel {
 

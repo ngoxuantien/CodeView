@@ -1,4 +1,4 @@
-package com.example.codeview.binding_adapter;
+package com.example.codeview.binding_adapter.click;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -22,23 +22,7 @@ public class ClickLike {
             view1.setImageResource(R.drawable.group_15checked);
             click[0] = true;
         }
-        view1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (click[0] == true) {
-                    view1.setImageResource(R.drawable.group_15checked);
-                    click[0] = false;
-                } else {
 
-                    view1.setImageResource(R.drawable.group_15);
-                    click[0] = true;
-
-
-                }
-
-
-            }
-        });
 
     }
 

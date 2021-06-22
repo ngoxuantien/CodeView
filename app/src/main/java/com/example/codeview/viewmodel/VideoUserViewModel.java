@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.codeview.model.channel.Channel;
 import com.example.codeview.model.hashtag.HashTag;
+import com.example.codeview.model.putmodel.Likeput;
 import com.example.codeview.model.video.VideoAcount;
 import com.example.codeview.repository.MovieRepository;
 
@@ -24,14 +25,13 @@ public class VideoUserViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public int getIdvideo(){
-      return videoAcount12.getValue().getData().getIdVideo();
+    public int getIdvideo() {
+        return videoAcount12.getValue().getData().getIdVideo();
     }
 
 
-
-    public void getVideoAcount(String id) {
-        videoAcount12 = movieRepository.getVideo(id);
+    public void getVideoAcount(String idVideo,String idUser) {
+        videoAcount12 = movieRepository.getVideo(idVideo, idUser);
     }
 
     public void getChannelVideo(String id) {
@@ -42,7 +42,9 @@ public class VideoUserViewModel extends AndroidViewModel {
         hashTag = movieRepository.getHashTag(id);
     }
 
-
+    public void putLike(Likeput likeput) {
+        movieRepository.putLike(likeput);
+    }
 
 
 }

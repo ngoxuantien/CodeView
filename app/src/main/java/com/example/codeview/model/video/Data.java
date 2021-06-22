@@ -57,6 +57,20 @@ public class Data {
     @SerializedName("linkVerticalCoverImage")
     @Expose
     private String linkVerticalCoverImage;
+
+
+    public Boolean getLike() {
+        return like;
+    }
+
+    public void setLike(Boolean like) {
+        this.like = like;
+    }
+
+    @SerializedName("like")
+    @Expose
+    private Boolean like;
+
     public String convertTotalLike(){
         return totalLike+"";
 

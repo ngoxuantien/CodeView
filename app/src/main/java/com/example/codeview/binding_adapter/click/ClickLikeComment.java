@@ -1,4 +1,4 @@
-package com.example.codeview.binding_adapter;
+package com.example.codeview.binding_adapter.click;
 
 import android.view.View;
 import android.widget.ImageView;

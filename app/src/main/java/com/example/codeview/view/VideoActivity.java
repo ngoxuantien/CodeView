@@ -2,6 +2,7 @@ package com.example.codeview.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.net.Uri;
@@ -15,7 +16,9 @@ import com.example.codeview.R;
 import com.example.codeview.adapter.HashTagAdapter;
 import com.example.codeview.databinding.ActivityVideoBinding;
 import com.example.codeview.model.hashtag.Datum;
+import com.example.codeview.model.putmodel.Likeput;
 import com.example.codeview.model.video.Data;
+import com.example.codeview.model.video.VideoAcount;
 import com.example.codeview.viewmodel.VideoUserViewModel;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
@@ -46,7 +49,7 @@ public class VideoActivity extends AppCompatActivity {
     ProgressBar progressBar;
     SimpleExoPlayer simpleExoPlayer;
     int k = 1;
-
+private int g=0,h=0;
     private Handler handler;
     VideoUserViewModel videoUserViewModel;
     private String linkvideo;
@@ -64,7 +67,7 @@ public class VideoActivity extends AppCompatActivity {
 
         videoUserViewModel = new ViewModelProviders().of(this).get(VideoUserViewModel.class);
         /// chuyền id =1;
-        videoUserViewModel.getVideoAcount("2");
+        videoUserViewModel.getVideoAcount("1","3");
         videoUserViewModel.getChannelVideo("2");
         videoUserViewModel.getHashTag("2");
 
@@ -86,7 +89,7 @@ public class VideoActivity extends AppCompatActivity {
             public void run() {
                 changes();
 
-                Uri videoUrl = Uri.parse("https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
+                Uri videoUrl = Uri.parse("\"https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
 
                 MediaSource mediaSource = buildMediaSource(videoUrl);
                 playerView.setPlayer(simpleExoPlayer);
@@ -157,7 +160,16 @@ public class VideoActivity extends AppCompatActivity {
 
     private void changes() {
 
-        videoUserViewModel.videoAcount12.observe(this, videoAcount -> setVideo(videoAcount.getData()));
+        videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
+            @Override
+            public void onChanged(VideoAcount videoAcount) {
+            setVideo(videoAcount.getData());
+            if (videoAcount.getData().getLike()){
+                setIsLike(1);
+            }else setIsLike(0);
+
+            }
+        });
         videoUserViewModel.channel.observe(this, channel -> setChannel(channel.getData()));
         videoUserViewModel.hashTag.observe(this, hashTag -> setHashTagRecyclerview(hashTag.getData()));
     }
@@ -166,6 +178,9 @@ public class VideoActivity extends AppCompatActivity {
     public void setVideo(Data data) {
         linkvideo = data.getLinkVideo();
         activityVideoBinding.setVideoChannel(data);
+    }
+    public void setIsLike(int isLike){
+        activityVideoBinding.setIsLike(isLike);
     }
 
     public void setChannel(com.example.codeview.model.channel.Data channel) {
@@ -192,6 +207,37 @@ public class VideoActivity extends AppCompatActivity {
 
     public void clickBack() {
         onBackPressed();
+    }
+
+    public void clickLikevideo(){
+
+        videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
+            @Override
+            public void onChanged(VideoAcount videoAcount) {
+                setVideo(videoAcount.getData());
+                if(g<1){
+                    if (videoAcount.getData().getLike()){
+                        h=1;
+                    }else h=0;
+
+                }
+                if(h==1){
+                    videoUserViewModel.putLike(new Likeput(0,1,3));
+                    setIsLike(0);
+                    h=0;
+                }else {
+                    videoUserViewModel.putLike(new Likeput(1,1,3));
+                    setIsLike(1);
+                    h=1;
+
+                }
+
+
+
+            }
+        });
+g++;
+
     }
 
     @Override

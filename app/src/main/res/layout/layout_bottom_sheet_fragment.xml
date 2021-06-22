@@ -40,8 +40,9 @@
             android:orientation="vertical">
 
             <TextView
-
+android:onClick="@{()->comment.clickreport()}"
                 android:id="@+id/no_of_comments"
+
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:gravity="center_vertical|center_horizontal"

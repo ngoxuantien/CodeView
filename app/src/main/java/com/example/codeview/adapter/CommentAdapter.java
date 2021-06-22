@@ -74,7 +74,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         });
         commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
         // phải fix id user
-        commentViewModel.getComment(commentList.get(position).getIdComment() + "","2");
+        commentViewModel.getComment(commentList.get(position).getIdComment() + "","3");
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////

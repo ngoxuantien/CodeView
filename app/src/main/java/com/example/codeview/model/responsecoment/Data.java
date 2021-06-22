@@ -32,6 +32,17 @@ public class Data {
     @SerializedName("videoResponseDto")
     @Expose
     private VideoResponseDto videoResponseDto;
+    @SerializedName("isLiked")
+    @Expose
+    private  int isLike;
+
+    public int getIsLike() {
+        return isLike;
+    }
+
+    public void setIsLike(int isLike) {
+        this.isLike = isLike;
+    }
 
     public Integer getIdComment() {
         return idComment;

@@ -9,6 +9,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.InverseBindingAdapter;
 import androidx.lifecycle.Observer;
@@ -56,7 +57,7 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
         videoUserViewModel = new ViewModelProvider(requireActivity()).get(VideoUserViewModel.class);
         // cái cũ
 
-        commentViewModel.getCommentsParent("2","2");
+        commentViewModel.getCommentsParent("2","3");
         commentViewModel.setIcCommentResponse("0");
         layoutBottomSheetFragmentBinding.setComment(MyBottonSheetDialogFragment.this);
 
@@ -78,17 +79,16 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
             }
         });
     }
-
+public  void clickreport(){
+    BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
+    bottomSheetReportFragment.show((getActivity()).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
+}
 
     public void onclick() {
 
         commentViewModel.addComment( videoUserViewModel.getIdvideo(),3,commentViewModel.getinput());
-        commentViewModel.getCommentsParent("2","2");
+        commentViewModel.getCommentsParent("2","3");
         change();
-
-
-
-
 
 
     }
