@@ -24,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setClickbutton() {
-        Intent intent = new Intent(this, VideoActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, VideoActivity.class);
+//       startActivity(intent);
+        BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
+        bottomSheetReportFragment.show((this).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
 
     }
 }

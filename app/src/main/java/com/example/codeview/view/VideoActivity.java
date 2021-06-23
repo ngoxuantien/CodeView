@@ -89,7 +89,7 @@ private int g=0,h=0;
             public void run() {
                 changes();
 
-                Uri videoUrl = Uri.parse("\"https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
+                Uri videoUrl = Uri.parse("https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
 
                 MediaSource mediaSource = buildMediaSource(videoUrl);
                 playerView.setPlayer(simpleExoPlayer);

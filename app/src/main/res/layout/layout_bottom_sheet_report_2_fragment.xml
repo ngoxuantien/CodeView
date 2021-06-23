@@ -5,14 +5,7 @@
 
     <data>
 
-        <import type="android.view.View" />
 
-        <variable
-            name="position"
-            type="Integer" />
-        <variable
-            name="bottonReport"
-            type="com.example.codeview.view.BottomSheetReportFragment" />
     </data>
 
     <LinearLayout
@@ -21,490 +14,75 @@
         android:background="#00F4EFEF"
         android:orientation="vertical">
 
-        <ScrollView
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="#00F4EFEF"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:src="@drawable/group_13" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#00F4EFEF"
+                android:layout_above="@+id/bottomcoment"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/backgrow"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-                    android:src="@drawable/group_13" />
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/bottomcoment"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/backgrow"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <ImageView
 
-                        <ImageView
-                            android:onClick="@{()->bottonReport.setPositionDown()}"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginTop="25dp"
-                            android:src="@drawable/group_18" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="20dp"
-                            android:text="Denunciar"
-                            android:textColor="#10c8c8"
-                            android:textSize="14sp"
-                            android:textStyle="normal" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        setViewReport1="@{position}"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginTop="17dp"
-                            android:text="¿Por qué quieres denunciar este comentario?"
-                            android:textColor="#000000"
-                            android:textSize="13sp"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginTop="7dp"
-                            android:layout_marginRight="25.5dp"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing el
-it. Suspendisse sit amet mauris ac justo posuere cur
-sus vel eu ligula. Nullam ullamcorper augue."
-                            android:textColor="#667b90"
-                            android:textSize="13sp"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginTop="17dp"
-                            android:text="Selecciona un motivo:"
-                            android:textColor="#2b3a4a"
-                            android:textSize="13sp"
-                            android:textStyle="normal" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="11.5dp"
-                            android:background="#ebf0f5" />
-
-                        <LinearLayout
-
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <RelativeLayout
-                                android:onClick="@{()->bottonReport.setPositionUp()}"
-                                android:layout_width="match_parent"
-
-                                android:layout_height="wrap_content">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginBottom="16dp"
-                                    android:text="Información engañosa"
-                                    android:textColor="#415263"
-                                    android:textSize="13sp"
-                                    android:textStyle="normal" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginRight="50dp"
-                                    android:src="@drawable/group_19" />
-
-
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#ebf0f5" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:onClick="@{()->bottonReport.setPositionUp()}"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginBottom="16dp"
-                                    android:text="Contenido violento"
-                                    android:textColor="#415263"
-                                    android:textSize="13sp"
-                                    android:textStyle="normal" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginRight="50dp"
-                                    android:src="@drawable/group_19" />
-
-
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#ebf0f5" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:onClick="@{()->bottonReport.setPositionUp()}"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginBottom="16dp"
-                                    android:text="Fraude y estafas"
-                                    android:textColor="#415263"
-                                    android:textSize="13sp"
-                                    android:textStyle="normal" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginRight="50dp"
-                                    android:src="@drawable/group_19" />
-
-
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#ebf0f5" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:onClick="@{()->bottonReport.setPositionUp()}"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginBottom="16dp"
-                                    android:text="Persona peligrosa"
-                                    android:textColor="#415263"
-                                    android:textSize="13sp"
-                                    android:textStyle="normal" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginRight="50dp"
-                                    android:src="@drawable/group_19" />
-
-
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#ebf0f5" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:onClick="@{()->bottonReport.setPositionUp()}"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginBottom="16dp"
-                                    android:text="Lenguaje inapropiado"
-                                    android:textColor="#415263"
-                                    android:textSize="13sp"
-                                    android:textStyle="normal" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginRight="50dp"
-                                    android:src="@drawable/group_19" />
-
-
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#ebf0f5" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:onClick="@{()->bottonReport.setPositionUp()}"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginBottom="16dp"
-                                    android:text="Acoso o intimidación"
-                                    android:textColor="#415263"
-                                    android:textSize="13sp"
-                                    android:textStyle="normal" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="35dp"
-                                    android:layout_marginTop="14dp"
-                                    android:layout_marginRight="50dp"
-                                    android:src="@drawable/group_19" />
-
-
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#ebf0f5" />
-
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-
-                    setViewReport2="@{position}"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="vertical">
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/group_18" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="31.5dp"
-                        android:layout_marginTop="17dp"
-                        android:textColor="#000000"
-                        android:textSize="13sp"
-                        android:textStyle="normal"
-                        tools:text="Información engañosa" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:text="Denunciar"
+                        android:textColor="#10c8c8"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                </FrameLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp" />
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:layout_marginTop="17dp"
-                        android:text="Queda prohibido:"
-                        android:textColor="#667b90"
-                        android:textSize="13sp"
-                        android:textStyle="normal" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:orientation="horizontal">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="7dp"
-                                android:layout_height="7dp"
-                                android:layout_marginLeft="33dp"
-                                android:layout_marginTop="6dp"
-                                android:backgroundTint="#fb624a" />
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginRight="19dp"
-                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
-elit molestie lorem vel commodo tincidunt. "
-                                android:textColor="#667b90"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="11dp"
-                            android:orientation="horizontal">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="7dp"
-                                android:layout_height="7dp"
-                                android:layout_marginLeft="33dp"
-                                android:layout_marginTop="6dp"
-                                android:backgroundTint="#fb624a" />
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginRight="19dp"
-                                android:text="Donec ante erat, congue et tristique eget, ferment
-um at nulla. Nam vestibulum aliquam enim quis dic
-tum massa gravida id enean justo lectus, facilisis
-non lacus. "
-                                android:textColor="#667b90"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="11dp"
-                            android:orientation="horizontal">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="7dp"
-                                android:layout_height="7dp"
-                                android:layout_marginLeft="33dp"
-                                android:layout_marginTop="6dp"
-                                android:backgroundTint="#fb624a" />
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginRight="19dp"
-                                android:text="Mauris imperdiet erat ut ex vulputate, eget egestas
-dolor scelerisque ed non nisi.  "
-                                android:textColor="#667b90"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="11dp"
-                            android:orientation="horizontal">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="7dp"
-                                android:layout_height="7dp"
-                                android:layout_marginLeft="33dp"
-                                android:layout_marginTop="6dp"
-                                android:backgroundTint="#fb624a" />
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginRight="19dp"
-                                android:text="Non feugiat sem feugiat. Etiam commodo euismod
-cursus."
-                                android:textColor="#667b90"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <Button
-                        android:layout_width="285dp"
-                        android:layout_height="46dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="132dp"
-                        android:background="@drawable/backgrow_button"
-                        android:text="Enviar"
-                        android:onClick="@{()->bottonReport.setPositionUp()}"
-                        android:textAllCaps="false" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    setViewReport3="@{position}"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:layout_width="54dp"
-                        android:layout_height="54dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="112dp"
-                        android:src="@drawable/group_10" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="14dp"
-                        android:text="Gracias por denunciar"
+                        android:text="Tại sao bạn muốn báo cáo nhận xét này?"
                         android:textColor="#000000"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -512,29 +90,251 @@ cursus."
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="26dp"
-                        android:layout_marginTop="11dp"
-                        android:layout_marginRight="26dp"
-                        android:gravity="center_horizontal"
-                        android:text="Hemos recepcionado tu denuncia, lo revisaremos
-pronto y tomaremos las medidas necesarias para
-que la comunidad de Bitel siga siendo un lugar seguro ." />
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="25.5dp"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing el
+it. Suspendisse sit amet mauris ac justo posuere cur
+sus vel eu ligula. Nullam ullamcorper augue."
+                        android:textColor="#667b90"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="17dp"
+                        android:text="Chọn một lí do:"
+                        android:textColor="#2b3a4a"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="11.5dp"
+                        android:background="#ebf0f5" />
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Thông tin sai lệch"
+                                android:textColor="#415263"
+                                android:textSize="13sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginRight="50dp"
+                                android:src="@drawable/group_19" />
 
 
-                    <Button
-                        android:layout_width="285dp"
-                        android:layout_height="46dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="132dp"
-                        android:background="@drawable/backgrow_button"
-                        android:text="Enviar"
+                        </RelativeLayout>
 
-                        android:textAllCaps="false" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#ebf0f5" />
 
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Nội dung bạo lực"
+                                android:textColor="#415263"
+                                android:textSize="13sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginRight="50dp"
+                                android:src="@drawable/group_19" />
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#ebf0f5" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Gian lận và lừa đảo"
+                                android:textColor="#415263"
+                                android:textSize="13sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginRight="50dp"
+                                android:src="@drawable/group_19" />
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#ebf0f5" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Người nguy hiểm"
+                                android:textColor="#415263"
+                                android:textSize="13sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginRight="50dp"
+                                android:src="@drawable/group_19" />
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#ebf0f5" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Ngôn ngữ không thích hợp"
+                                android:textColor="#415263"
+                                android:textSize="13sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginRight="50dp"
+                                android:src="@drawable/group_19" />
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#ebf0f5" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="16dp"
+                                android:text="Quấy rối hoặc đe dọa"
+                                android:textColor="#415263"
+                                android:textSize="13sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="35dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginRight="50dp"
+                                android:src="@drawable/group_19" />
+
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#ebf0f5" />
+
+
+                    </LinearLayout>
                 </LinearLayout>
 
+
             </LinearLayout>
-        </ScrollView>
+
+
+        </LinearLayout>
 
 
     </LinearLayout>

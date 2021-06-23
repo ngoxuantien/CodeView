@@ -36,7 +36,7 @@ public class MovieRepository {
             public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
                 if (response.isSuccessful()) {
                     videoAcountMutableLiveData.setValue(response.body());
-                    Log.d("erro", response.body().getData().getLinkVideo());
+            //        Log.d("erro", response.body().getData().getLinkVideo());
                 }
             }
 
