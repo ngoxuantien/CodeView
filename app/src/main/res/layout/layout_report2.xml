@@ -1,153 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-    <LinearLayout
+<layout>
+
+    <data>
+        <variable
+            name="report2"
+            type="com.example.codeview.LayoutReport2" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="31.5dp"
-            android:layout_marginTop="17dp"
-            android:textColor="#000000"
-            android:textSize="13sp"
-            android:textStyle="normal"
-           android:text="Información engañosa" />
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="17dp"
-            android:text="Queda prohibido:"
-            android:textColor="#667b90"
-            android:textSize="13sp"
-            android:textStyle="normal" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="25dp"
+                android:onClick="@{()->report2.backOn()}"
+                android:src="@drawable/group_18" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Denunciar"
+                android:textColor="#10c8c8"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="31.5dp"
+                android:layout_marginTop="17dp"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:text="Información engañosa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="17dp"
+                android:text="Queda prohibido:"
+                android:textColor="#667b90"
+                android:textSize="13sp"
+                android:textStyle="normal" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="7dp"
-                    android:layout_height="7dp"
-                    android:layout_marginLeft="33dp"
-                    android:layout_marginTop="6dp"
-                    android:backgroundTint="#fb624a" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="19dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:layout_marginLeft="33dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#fb624a" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="19dp"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
 elit molestie lorem vel commodo tincidunt. "
-                    android:textColor="#667b90"
-                    android:textSize="13sp"
-                    android:textStyle="normal" />
-            </LinearLayout>
+                        android:textColor="#667b90"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="7dp"
-                    android:layout_height="7dp"
-                    android:layout_marginLeft="33dp"
-                    android:layout_marginTop="6dp"
-                    android:backgroundTint="#fb624a" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="19dp"
-                    android:text="Donec ante erat, congue et tristique eget, ferment
+                    android:layout_marginTop="11dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:layout_marginLeft="33dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#fb624a" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="19dp"
+                        android:text="Donec ante erat, congue et tristique eget, ferment
 um at nulla. Nam vestibulum aliquam enim quis dic
 tum massa gravida id enean justo lectus, facilisis
 non lacus. "
-                    android:textColor="#667b90"
-                    android:textSize="13sp"
-                    android:textStyle="normal" />
-            </LinearLayout>
+                        android:textColor="#667b90"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="7dp"
-                    android:layout_height="7dp"
-                    android:layout_marginLeft="33dp"
-                    android:layout_marginTop="6dp"
-                    android:backgroundTint="#fb624a" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="19dp"
-                    android:text="Mauris imperdiet erat ut ex vulputate, eget egestas
+                    android:layout_marginTop="11dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:layout_marginLeft="33dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#fb624a" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="19dp"
+                        android:text="Mauris imperdiet erat ut ex vulputate, eget egestas
 dolor scelerisque ed non nisi.  "
-                    android:textColor="#667b90"
-                    android:textSize="13sp"
-                    android:textStyle="normal" />
-            </LinearLayout>
+                        android:textColor="#667b90"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="7dp"
-                    android:layout_height="7dp"
-                    android:layout_marginLeft="33dp"
-                    android:layout_marginTop="6dp"
-                    android:backgroundTint="#fb624a" />
-
-                <TextView
-
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="19dp"
-                    android:text="Non feugiat sem feugiat. Etiam commodo euismod
+                    android:layout_marginTop="11dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:layout_marginLeft="33dp"
+                        android:layout_marginTop="6dp"
+                        android:backgroundTint="#fb624a" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="19dp"
+                        android:text="Non feugiat sem feugiat. Etiam commodo euismod
 cursus."
-                    android:textColor="#667b90"
-                    android:textSize="13sp"
-                    android:textStyle="normal" />
+                        android:textColor="#667b90"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
             </LinearLayout>
 
+            <Button
+
+                android:onClick="@{()->report2.movedOn()}"
+                android:layout_width="285dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="149dp"
+                android:background="@drawable/backgrow_button"
+                android:text="Enviar"
+                android:textAllCaps="false" />
         </LinearLayout>
 
-        <Button
-            android:layout_width="285dp"
-            android:layout_height="46dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="149dp"
-            android:background="@drawable/backgrow_button"
-            android:text="Enviar"
-            android:textAllCaps="false" />
     </LinearLayout>
-
-</LinearLayout>
+</layout>

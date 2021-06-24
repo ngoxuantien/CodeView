@@ -1,50 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-    <LinearLayout
+<layout>
+
+    <data>
+
+        <variable
+            name="report3"
+            type="com.example.codeview.LayoutReport3" />
+
+    </data>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_marginTop="112dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:src="@drawable/group_10"/>
-        <TextView
-            android:layout_marginTop="14dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="25dp"
+                android:onClick="@{()->report3.backOn()}"
+                android:src="@drawable/group_18" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Denunciar"
+                android:textColor="#10c8c8"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="normal"
-            android:textSize="13sp"
-            android:text="Gracias por denunciar"
-            android:textColor="#000000"/>
-        <TextView
-            android:layout_marginTop="11dp"
-            android:layout_marginLeft="26dp"
-            android:layout_marginRight="26dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Hemos recepcionado tu denuncia, lo revisaremos
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="112dp"
+                android:src="@drawable/group_10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:text="Gracias por denunciar"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="26dp"
+                android:gravity="center_horizontal"
+                android:text="Hemos recepcionado tu denuncia, lo revisaremos
 pronto y tomaremos las medidas necesarias para
-que la comunidad de Bitel siga siendo un lugar seguro ."/>
+que la comunidad de Bitel siga siendo un lugar seguro ." />
 
 
+            <Button
+                android:layout_width="285dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/backgrow_button"
+                android:onClick="@{()->report3.back()}"
+                android:text="Enviar"
+                android:textAllCaps="false" />
+        </LinearLayout>
 
-        <Button
-            android:layout_width="285dp"
-            android:layout_height="46dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="132dp"
-            android:background="@drawable/backgrow_button"
-            android:text="Enviar"
-
-            android:textAllCaps="false" />
     </LinearLayout>
-
-</LinearLayout>
+</layout>
