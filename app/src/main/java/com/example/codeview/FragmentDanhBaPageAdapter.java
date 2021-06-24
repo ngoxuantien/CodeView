@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class FragmentDanhBaPageAdapter extends FragmentStatePagerAdapter {
-    private int number=2;
+    private int number=3;
     public FragmentDanhBaPageAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
@@ -16,9 +16,10 @@ public class FragmentDanhBaPageAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0 : return new Account();
-            case 1: return new DanhBa();
-            default:return  new Account();
+            case 0 : return new LayoutReport1();
+            case 1: return new LayoutReport2();
+            case 2: return  new LayoutReport3();
+            default:return  new LayoutReport1();
 
         }
     }
@@ -34,7 +35,8 @@ public class FragmentDanhBaPageAdapter extends FragmentStatePagerAdapter {
       switch (position){
           case 0:return  "DANH BA";
           case 1:return  "OFICIAL ACCOUNT";
-          default: return "DANH BẠ";
+          case 2: return "layout report 3"
+;          default: return "DANH BẠ";
       }
     }
 }

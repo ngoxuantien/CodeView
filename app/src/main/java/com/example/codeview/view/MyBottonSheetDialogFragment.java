@@ -49,7 +49,7 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
 
         BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
         bottomSheetDialog = new BottomSheetDialog(getContext(), R.style.BottomSheetDialogTheme);
-       view = LayoutInflater.from(getContext()).inflate(R.layout.layout_bottom_sheet_fragment,null);
+        view = LayoutInflater.from(getContext()).inflate(R.layout.layout_bottom_sheet_fragment, null);
         bottomSheetDialog.setContentView(view);
 
         layoutBottomSheetFragmentBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.layout_bottom_sheet_fragment, null, false);
@@ -57,7 +57,7 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
         videoUserViewModel = new ViewModelProvider(requireActivity()).get(VideoUserViewModel.class);
         // cái cũ
 
-        commentViewModel.getCommentsParent("1","3");
+        commentViewModel.getCommentsParent("1", "3");
         commentViewModel.setIcCommentResponse("0");
         layoutBottomSheetFragmentBinding.setComment(MyBottonSheetDialogFragment.this);
 
@@ -74,20 +74,21 @@ public class MyBottonSheetDialogFragment extends BottomSheetDialogFragment {
         commentViewModel.commentsParent.observe(this, new Observer<Comment>() {
             @Override
             public void onChanged(Comment comment) {
-                commentAdapter = new CommentAdapter(getContext(), comment.getData(),getActivity());
+                commentAdapter = new CommentAdapter(getContext(), comment.getData(), getActivity());
                 layoutBottomSheetFragmentBinding.setAdapter(commentAdapter);
             }
         });
     }
-public  void clickreport(){
-    BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
-    bottomSheetReportFragment.show((getActivity()).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
-}
+
+    public void clickreport() {
+        BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
+        bottomSheetReportFragment.show((getActivity()).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
+    }
 
     public void onclick() {
 
-        commentViewModel.addComment( videoUserViewModel.getIdvideo(),3,commentViewModel.getinput());
-        commentViewModel.getCommentsParent("1","3");
+        commentViewModel.addComment(videoUserViewModel.getIdvideo(), 3, commentViewModel.getinput());
+        commentViewModel.getCommentsParent("1", "3");
         change();
 
 

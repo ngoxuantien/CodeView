@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Account extends Fragment {
+public class LayoutReport3 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-      View view= inflater.inflate(R.layout.account,container,false);
+      View view= inflater.inflate(R.layout.layout_report3,container,false);
 
         return view;
     }
