@@ -11,8 +11,12 @@ import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.putmodel.CommentPost;
 import com.example.codeview.model.hashtag.HashTag;
 import com.example.codeview.model.putmodel.Likeput;
+import com.example.codeview.model.putmodel.ReportPost;
+import com.example.codeview.model.putmodel.WhatLatePut;
 import com.example.codeview.model.responsecoment.ResponseCommentSend;
 import com.example.codeview.model.responsepostlike.ResponsePostLike;
+import com.example.codeview.model.responsereport.ResponsePostReport;
+import com.example.codeview.model.responsewhatlate.ResponseMovieLate;
 import com.example.codeview.model.video.VideoAcount;
 
 import retrofit2.Call;
@@ -146,6 +150,34 @@ public class MovieRepository {
             @Override
             public void onFailure(Call<ResponsePostLike> call, Throwable t) {
                 Log.d("loi put like", t.getMessage());
+            }
+        });
+    }
+
+    public void putWhatLate(WhatLatePut whatLatePut){
+        apiInterface.putWhatLate(whatLatePut).enqueue(new Callback<ResponseMovieLate>() {
+            @Override
+            public void onResponse(Call<ResponseMovieLate> call, Response<ResponseMovieLate> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseMovieLate> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void postReport(ReportPost reportPost){
+        apiInterface.postReport(reportPost).enqueue(new Callback<ResponsePostReport>() {
+            @Override
+            public void onResponse(Call<ResponsePostReport> call, Response<ResponsePostReport> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponsePostReport> call, Throwable t) {
+
             }
         });
     }

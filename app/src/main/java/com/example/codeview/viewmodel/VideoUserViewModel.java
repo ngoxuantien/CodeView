@@ -10,6 +10,8 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.codeview.model.channel.Channel;
 import com.example.codeview.model.hashtag.HashTag;
 import com.example.codeview.model.putmodel.Likeput;
+import com.example.codeview.model.putmodel.ReportPost;
+import com.example.codeview.model.putmodel.WhatLatePut;
 import com.example.codeview.model.video.VideoAcount;
 import com.example.codeview.repository.MovieRepository;
 
@@ -45,6 +47,11 @@ public class VideoUserViewModel extends AndroidViewModel {
     public void putLike(Likeput likeput) {
         movieRepository.putLike(likeput);
     }
+
+    public void putWhatLate(WhatLatePut whatLatePut){
+        movieRepository.putWhatLate(whatLatePut);
+    }
+
 
 
 }

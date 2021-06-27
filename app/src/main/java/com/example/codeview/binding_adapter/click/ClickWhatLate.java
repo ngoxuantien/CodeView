@@ -7,8 +7,8 @@ import androidx.databinding.BindingAdapter;
 
 import com.example.codeview.R;
 
-public class ClickAddFavorite {
-    @BindingAdapter({"clickaddfavorite"})
+public class ClickWhatLate {
+    @BindingAdapter({"clickWhatLate"})
     public static void clickAdd(ImageView viewIm, int k) {
         final int[] a = {1};
 

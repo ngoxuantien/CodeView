@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.putmodel.CommentPost;
+import com.example.codeview.model.putmodel.ReportPost;
 import com.example.codeview.repository.MovieRepository;
 
 public class CommentViewModel extends AndroidViewModel {
@@ -69,6 +70,10 @@ public class CommentViewModel extends AndroidViewModel {
 
 
     }
+    public void postReport(ReportPost reportPost){
+        movieRepository.postReport(reportPost);
+    }
+
 
 
 }

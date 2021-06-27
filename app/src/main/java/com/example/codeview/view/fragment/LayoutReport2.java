@@ -1,4 +1,4 @@
-package com.example.codeview;
+package com.example.codeview.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.example.codeview.R;
 import com.example.codeview.databinding.LayoutReport2Binding;
 
 public class LayoutReport2 extends Fragment {

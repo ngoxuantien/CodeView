@@ -1,4 +1,4 @@
-package com.example.codeview;
+package com.example.codeview.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,8 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.example.codeview.R;
 import com.example.codeview.databinding.LayoutReport3Binding;
 import com.example.codeview.view.BottomSheetReportFragment;
+import com.example.codeview.view.fragment.LayoutReport2;
 
 public class LayoutReport3 extends Fragment {
 
@@ -32,7 +34,7 @@ public class LayoutReport3 extends Fragment {
         getFragmentManager().beginTransaction().replace(R.id.fragment, send).addToBackStack(null).commit();
     }
     public void back(){
-
+        ((BottomSheetReportFragment)getParentFragment()).postReport();
         // lấy fragment cha và trỏ vào thuộc tính của nó
         ((BottomSheetReportFragment) getParentFragment()).dismiss();
     }

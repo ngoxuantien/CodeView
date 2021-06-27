@@ -5,8 +5,12 @@ import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.putmodel.CommentPost;
 import com.example.codeview.model.hashtag.HashTag;
 import com.example.codeview.model.putmodel.Likeput;
+import com.example.codeview.model.putmodel.ReportPost;
+import com.example.codeview.model.putmodel.WhatLatePut;
 import com.example.codeview.model.responsecoment.ResponseCommentSend;
 import com.example.codeview.model.responsepostlike.ResponsePostLike;
+import com.example.codeview.model.responsereport.ResponsePostReport;
+import com.example.codeview.model.responsewhatlate.ResponseMovieLate;
 import com.example.codeview.model.video.VideoAcount;
 
 import retrofit2.Call;
@@ -45,6 +49,14 @@ public interface ApiInterface {
 
     @PUT("videos/like")
     Call<ResponsePostLike> putLike(@Body Likeput likeput);
+
+
+    @PUT("user_video/viewlate")
+    Call<ResponseMovieLate> putWhatLate(@Body WhatLatePut whatLatePut);
+
+
+    @POST("reports")
+    Call<ResponsePostReport> postReport(@Body ReportPost reportPost);
 
 
 

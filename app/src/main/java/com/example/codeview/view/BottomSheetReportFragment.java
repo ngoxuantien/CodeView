@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -15,22 +14,26 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.lifecycle.ViewModelProvider;
 
-import com.example.codeview.LayoutReport1;
-import com.example.codeview.LayoutReport3;
+import com.example.codeview.model.putmodel.ReportPost;
+import com.example.codeview.view.fragment.LayoutReport1;
+import com.example.codeview.view.fragment.LayoutReport3;
 import com.example.codeview.R;
 
 
 import com.example.codeview.databinding.LayoutBottomSheetReportFragmentBinding;
+import com.example.codeview.viewmodel.CommentViewModel;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BottomSheetReportFragment extends BottomSheetDialogFragment {
-private  BottomSheetDialog bottomSheetDialog;
+    private BottomSheetDialog bottomSheetDialog;
 
     private LayoutBottomSheetReportFragmentBinding layoutBottomSheetReport2FragmentBinding;
-private LayoutReport3 layoutReport3;
+    private int idReport;
+    private CommentViewModel commentViewModel;
+
     public static BottomSheetReportFragment newInstance() {
         BottomSheetReportFragment myBottonSheetDialogFragment = new BottomSheetReportFragment();
 
@@ -41,7 +44,7 @@ private LayoutReport3 layoutReport3;
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-      bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
+        bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
         bottomSheetDialog = new BottomSheetDialog(getContext(), R.style.BottomSheetDialogTheme);
 
         return bottomSheetDialog;
@@ -53,13 +56,13 @@ private LayoutReport3 layoutReport3;
         layoutBottomSheetReport2FragmentBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.layout_bottom_sheet_report_fragment, null, false);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_bottom_sheet_report_fragment, null);
         bottomSheetDialog.setContentView(view);
+        commentViewModel = new ViewModelProvider(requireActivity()).get(CommentViewModel.class);
 
-
-        ImageView imageView= view.findViewById(R.id.exit);
+        ImageView imageView = view.findViewById(R.id.exit);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               bottomSheetDialog.dismiss();
+                bottomSheetDialog.dismiss();
             }
         });
 
@@ -73,8 +76,14 @@ private LayoutReport3 layoutReport3;
         return view;
     }
 
+    public void postReport() {
+        //    commentViewModel.postReport(new ReportPost(idReport, 1, 1, 1, "tien"));
 
+    }
 
+    public void saveReport(int idReport) {
+        this.idReport = idReport;
+    }
 
 
 }

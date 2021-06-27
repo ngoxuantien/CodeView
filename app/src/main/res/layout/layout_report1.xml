@@ -4,7 +4,7 @@
     <data>
         <variable
             name="report1"
-            type="com.example.codeview.LayoutReport1" />
+            type="com.example.codeview.view.fragment.LayoutReport1" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -84,7 +84,7 @@ sus vel eu ligula. Nullam ullamcorper augue."
 
                     android:layout_height="wrap_content"
 
-                    android:onClick="@{()->report1.movieOn()}">
+                    android:onClick="@{()->report1.movieOn(1)}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -118,7 +118,7 @@ sus vel eu ligula. Nullam ullamcorper augue."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:onClick="@{()->report1.movieOn()}">
+                    android:onClick="@{()->report1.movieOn(2)}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -152,7 +152,7 @@ sus vel eu ligula. Nullam ullamcorper augue."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:onClick="@{()->report1.movieOn()}">
+                    android:onClick="@{()->report1.movieOn(3)}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -186,7 +186,7 @@ sus vel eu ligula. Nullam ullamcorper augue."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:onClick="@{()->report1.movieOn()}">
+                    android:onClick="@{()->report1.movieOn(4)}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -220,7 +220,7 @@ sus vel eu ligula. Nullam ullamcorper augue."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:onClick="@{()->report1.movieOn()}">
+                    android:onClick="@{()->report1.movieOn(5)}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -254,7 +254,7 @@ sus vel eu ligula. Nullam ullamcorper augue."
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:onClick="@{()->report1.movieOn()}">
+                    android:onClick="@{()->report1.movieOn(6)}">
 
                     <TextView
                         android:layout_width="wrap_content"

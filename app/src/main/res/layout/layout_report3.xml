@@ -5,7 +5,7 @@
 
         <variable
             name="report3"
-            type="com.example.codeview.LayoutReport3" />
+            type="com.example.codeview.view.fragment.LayoutReport3" />
 
     </data>
 

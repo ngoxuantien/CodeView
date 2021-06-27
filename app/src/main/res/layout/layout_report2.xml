@@ -4,7 +4,7 @@
     <data>
         <variable
             name="report2"
-            type="com.example.codeview.LayoutReport2" />
+            type="com.example.codeview.view.fragment.LayoutReport2" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

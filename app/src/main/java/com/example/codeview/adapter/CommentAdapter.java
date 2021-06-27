@@ -86,7 +86,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             toast.show();
             //
         });
+
         holder.itemCommentBinding.setClickReport(() -> {
+            // thêm dữ liệu để biết trường idComment
             BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
             bottomSheetReportFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
         });

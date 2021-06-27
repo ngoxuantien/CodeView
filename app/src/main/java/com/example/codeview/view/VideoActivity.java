@@ -49,7 +49,9 @@ public class VideoActivity extends AppCompatActivity {
     ProgressBar progressBar;
     SimpleExoPlayer simpleExoPlayer;
     int k = 1;
-private int g=0,h=0;
+    private int g = 0, h = 0;
+    private int g1 = 0, h1 = 0;
+    private int g2 = 0, h2 = 0;
     private Handler handler;
     VideoUserViewModel videoUserViewModel;
     private String linkvideo;
@@ -67,7 +69,7 @@ private int g=0,h=0;
 
         videoUserViewModel = new ViewModelProviders().of(this).get(VideoUserViewModel.class);
         /// chuyền id =1;
-        videoUserViewModel.getVideoAcount("1","3");
+        videoUserViewModel.getVideoAcount("1", "3");
         videoUserViewModel.getChannelVideo("2");
         videoUserViewModel.getHashTag("2");
 
@@ -89,7 +91,7 @@ private int g=0,h=0;
             public void run() {
                 changes();
 
-                Uri videoUrl = Uri.parse("https://videocdn.bitel.com.pe/vcs_medias/video/20210525/9830/playlist_720.m3u8");
+                Uri videoUrl = Uri.parse(linkvideo);
 
                 MediaSource mediaSource = buildMediaSource(videoUrl);
                 playerView.setPlayer(simpleExoPlayer);
@@ -163,10 +165,13 @@ private int g=0,h=0;
         videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
             @Override
             public void onChanged(VideoAcount videoAcount) {
-            setVideo(videoAcount.getData());
-            if (videoAcount.getData().getLike()){
-                setIsLike(1);
-            }else setIsLike(0);
+                setVideo(videoAcount.getData());
+                if (videoAcount.getData().getLike()) {
+                    setIsLike(1);
+                } else setIsLike(0);
+
+
+                /// chỗ này để lấy dữ liệu đã click xem sau chưa
 
             }
         });
@@ -179,7 +184,8 @@ private int g=0,h=0;
         linkvideo = data.getLinkVideo();
         activityVideoBinding.setVideoChannel(data);
     }
-    public void setIsLike(int isLike){
+
+    public void setIsLike(int isLike) {
         activityVideoBinding.setIsLike(isLike);
     }
 
@@ -209,36 +215,107 @@ private int g=0,h=0;
         onBackPressed();
     }
 
-    public void clickLikevideo(){
+    public void clickLikevideo() {
 
         videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
             @Override
             public void onChanged(VideoAcount videoAcount) {
                 setVideo(videoAcount.getData());
-                if(g<1){
-                    if (videoAcount.getData().getLike()){
-                        h=1;
-                    }else h=0;
+                if (g < 1) {
+                    if (videoAcount.getData().getLike()) {
+                        h = 1;
+                    } else h = 0;
 
                 }
-                if(h==1){
-                    videoUserViewModel.putLike(new Likeput(0,1,3));
+                if (h == 1) {
+                    videoUserViewModel.putLike(new Likeput(0, 1, 3));
                     setIsLike(0);
-                    h=0;
-                }else {
-                    videoUserViewModel.putLike(new Likeput(1,1,3));
+                    h = 0;
+                } else {
+                    videoUserViewModel.putLike(new Likeput(1, 1, 3));
                     setIsLike(1);
-                    h=1;
+                    h = 1;
 
                 }
-
 
 
             }
         });
-g++;
+        g++;
 
     }
+//    public void clickSubChange(){
+//
+//        videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
+//            @Override
+//            public void onChanged(VideoAcount videoAcount) {
+//                setVideo(videoAcount.getData());
+//                if(g<1){
+//                    if (videoAcount.getData().getLike()){
+//                        h=1;
+//                    }else h=0;
+//
+//                }
+//                if(h==1){
+//                    videoUserViewModel.putLike(new Likeput(0,1,3));
+//                    setIsLike(0);
+//                    h=0;
+//                }else {
+//                    videoUserViewModel.putLike(new Likeput(1,1,3));
+//                    setIsLike(1);
+//                    h=1;
+//
+//                }
+//
+//
+//
+//            }
+//        });
+//        g++;
+//
+//    }
+
+
+
+
+
+//    public void clickWhatLate(){
+//
+//        videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
+//            @Override
+//            public void onChanged(VideoAcount videoAcount) {
+//                setVideo(videoAcount.getData());
+//                if(g2<1){
+
+
+    // get whatlate
+//                    if (videoAcount.getData().getLike()){
+//                        h=1;
+//                    }else h=0;
+
+
+
+
+//
+//                }
+//                if(h==1){
+//                    videoUserViewModel.putWhatLate(new Likeput(0,1,3));
+ //                 setIsWhatLate(0);
+//                    h2=0;
+//                }else {
+//                    videoUserViewModel.putWhatLate(new Likeput(1,1,3));
+//                     setIsWhatLate(1);
+//                    h2=1;
+//
+//                }
+//
+//
+//
+//            }
+//        });
+//        g++;
+//
+//    }
 
     @Override
     protected void onPause() {
