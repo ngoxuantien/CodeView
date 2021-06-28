@@ -15,8 +15,11 @@ import android.widget.ProgressBar;
 import com.example.codeview.R;
 import com.example.codeview.adapter.HashTagAdapter;
 import com.example.codeview.databinding.ActivityVideoBinding;
+import com.example.codeview.model.channel.Channel;
 import com.example.codeview.model.hashtag.Datum;
-import com.example.codeview.model.putmodel.Likeput;
+import com.example.codeview.model.putpostmodel.Likeput;
+import com.example.codeview.model.putpostmodel.PostFollower;
+import com.example.codeview.model.putpostmodel.WhatLatePut;
 import com.example.codeview.model.video.Data;
 import com.example.codeview.model.video.VideoAcount;
 import com.example.codeview.viewmodel.VideoUserViewModel;
@@ -69,8 +72,8 @@ public class VideoActivity extends AppCompatActivity {
 
         videoUserViewModel = new ViewModelProviders().of(this).get(VideoUserViewModel.class);
         /// chuyền id =1;
-        videoUserViewModel.getVideoAcount("1", "3");
-        videoUserViewModel.getChannelVideo("2");
+        videoUserViewModel.getVideoAcount("2", "3");
+        videoUserViewModel.getChannelVideo("2", "3");
         videoUserViewModel.getHashTag("2");
 
         playerView = findViewById(R.id.play_video);
@@ -172,10 +175,26 @@ public class VideoActivity extends AppCompatActivity {
 
 
                 /// chỗ này để lấy dữ liệu đã click xem sau chưa
+                if (videoAcount.getData().getWatchLate()) {
+                    setIsWhatLate(1);
+                } else {
+                    setIsWhatLate(0);
+                }
+
 
             }
         });
-        videoUserViewModel.channel.observe(this, channel -> setChannel(channel.getData()));
+        videoUserViewModel.channel.observe(this, new Observer<Channel>() {
+            @Override
+            public void onChanged(Channel channel) {
+                setChannel(channel.getData());
+                if (channel.getData().getCheckFollow()) {
+                    setIsFollow(1);
+                } else {
+                    setIsFollow(0);
+                }
+            }
+        });
         videoUserViewModel.hashTag.observe(this, hashTag -> setHashTagRecyclerview(hashTag.getData()));
     }
 
@@ -187,6 +206,14 @@ public class VideoActivity extends AppCompatActivity {
 
     public void setIsLike(int isLike) {
         activityVideoBinding.setIsLike(isLike);
+    }
+
+    public void setIsWhatLate(int isWhatLate) {
+        activityVideoBinding.setIsWhatLate(isWhatLate);
+    }
+
+    public void setIsFollow(int isFollow) {
+        activityVideoBinding.setIsFollow(isFollow);
     }
 
     public void setChannel(com.example.codeview.model.channel.Data channel) {
@@ -244,78 +271,68 @@ public class VideoActivity extends AppCompatActivity {
         g++;
 
     }
-//    public void clickSubChange(){
-//
-//        videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
-//            @Override
-//            public void onChanged(VideoAcount videoAcount) {
-//                setVideo(videoAcount.getData());
-//                if(g<1){
-//                    if (videoAcount.getData().getLike()){
-//                        h=1;
-//                    }else h=0;
-//
-//                }
-//                if(h==1){
-//                    videoUserViewModel.putLike(new Likeput(0,1,3));
-//                    setIsLike(0);
-//                    h=0;
-//                }else {
-//                    videoUserViewModel.putLike(new Likeput(1,1,3));
-//                    setIsLike(1);
-//                    h=1;
-//
-//                }
-//
-//
-//
-//            }
-//        });
-//        g++;
-//
-//    }
+
+    public void clickSubChange(){
+        videoUserViewModel.channel.observe(this, new Observer<Channel>() {
+            @Override
+            public void onChanged(Channel channel) {
+               setChannel(channel.getData());
+                if(g1<1){
+                    if (channel.getData().getCheckFollow()){
+                        h1=1;
+                    }else h1=0;
+
+                }
+                if(h1==1){
+                    videoUserViewModel.deleteFollower(new PostFollower(3+"",channel.getData().getIdUser().toString()));
+                    setIsFollow(0);
+                    h1=0;
+
+                }else {
+                    videoUserViewModel.postFollower(new PostFollower(3+"",channel.getData().getIdUser().toString()));
+                    setIsFollow(1);
+                    h1=1;
 
 
+                }
+            }
+        });
+
+        g1++;
+
+    }
 
 
+    public void clickWhatLate() {
 
-//    public void clickWhatLate(){
-//
-//        videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
-//            @Override
-//            public void onChanged(VideoAcount videoAcount) {
-//                setVideo(videoAcount.getData());
-//                if(g2<1){
+        videoUserViewModel.videoAcount12.observe(this, new Observer<VideoAcount>() {
+            @Override
+            public void onChanged(VideoAcount videoAcount) {
+                setVideo(videoAcount.getData());
+                if (g2 < 1) {
+
+                    if (videoAcount.getData().getWatchLate()) {
+                        h2 = 1;
+                    } else h2 = 0;
+
+                }
+                if (h2 == 1) {
+                    videoUserViewModel.putWhatLate(new WhatLatePut(false, videoAcount.getData().getIdVideo(), 3));
+                    setIsWhatLate(0);
+                    h2 = 0;
+                } else {
+                    videoUserViewModel.putWhatLate(new WhatLatePut(true, videoAcount.getData().getIdVideo(), 3));
+                    setIsWhatLate(1);
+                    h2 = 1;
+
+                }
 
 
-    // get whatlate
-//                    if (videoAcount.getData().getLike()){
-//                        h=1;
-//                    }else h=0;
+            }
+        });
+        g2++;
 
-
-
-
-//
-//                }
-//                if(h==1){
-//                    videoUserViewModel.putWhatLate(new Likeput(0,1,3));
- //                 setIsWhatLate(0);
-//                    h2=0;
-//                }else {
-//                    videoUserViewModel.putWhatLate(new Likeput(1,1,3));
-//                     setIsWhatLate(1);
-//                    h2=1;
-//
-//                }
-//
-//
-//
-//            }
-//        });
-//        g++;
-//
-//    }
+    }
 
     @Override
     protected void onPause() {

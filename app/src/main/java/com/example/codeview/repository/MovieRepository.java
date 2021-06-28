@@ -8,16 +8,19 @@ import com.example.codeview.api.ApiClient;
 import com.example.codeview.api.ApiInterface;
 import com.example.codeview.model.channel.Channel;
 import com.example.codeview.model.comment.Comment;
-import com.example.codeview.model.putmodel.CommentPost;
+import com.example.codeview.model.putpostmodel.CommentPost;
 import com.example.codeview.model.hashtag.HashTag;
-import com.example.codeview.model.putmodel.Likeput;
-import com.example.codeview.model.putmodel.ReportPost;
-import com.example.codeview.model.putmodel.WhatLatePut;
+import com.example.codeview.model.putpostmodel.Likeput;
+import com.example.codeview.model.putpostmodel.PostFollower;
+import com.example.codeview.model.putpostmodel.ReportPost;
+import com.example.codeview.model.putpostmodel.WhatLatePut;
 import com.example.codeview.model.responsecoment.ResponseCommentSend;
+import com.example.codeview.model.responsepostfollower.ResponsePostFollower;
 import com.example.codeview.model.responsepostlike.ResponsePostLike;
 import com.example.codeview.model.responsereport.ResponsePostReport;
-import com.example.codeview.model.responsewhatlate.ResponseMovieLate;
+import com.example.codeview.model.responsewhatlate.ResponseWhatLate;
 import com.example.codeview.model.video.VideoAcount;
+import com.google.android.exoplayer2.C;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,14 +36,14 @@ public class MovieRepository {
         apiInterface = ApiClient.getIntance().create(ApiInterface.class);
     }
 
-    public MutableLiveData<VideoAcount> getVideo(String idVideo,String idUser) {
+    public MutableLiveData<VideoAcount> getVideo(String idVideo, String idUser) {
         MutableLiveData<VideoAcount> videoAcountMutableLiveData = new MutableLiveData<>();
-        apiInterface.getPost(idVideo,idUser).enqueue(new Callback<VideoAcount>() {
+        apiInterface.getPost(idVideo, idUser).enqueue(new Callback<VideoAcount>() {
             @Override
             public void onResponse(Call<VideoAcount> call, Response<VideoAcount> response) {
                 if (response.isSuccessful()) {
                     videoAcountMutableLiveData.setValue(response.body());
-            //        Log.d("erro", response.body().getData().getLinkVideo());
+                    //        Log.d("erro", response.body().getData().getLinkVideo());
                 }
             }
 
@@ -52,9 +55,9 @@ public class MovieRepository {
         return videoAcountMutableLiveData;
     }
 
-    public MutableLiveData<Channel> getChannel(String id) {
+    public MutableLiveData<Channel> getChannel(String id,String idUser) {
         MutableLiveData<Channel> channelMutableLiveData = new MutableLiveData<>();
-        apiInterface.getChannel(id).enqueue(new Callback<Channel>() {
+        apiInterface.getChannel(id,idUser).enqueue(new Callback<Channel>() {
             @Override
             public void onResponse(Call<Channel> call, Response<Channel> response) {
                 if ((response.isSuccessful())) {
@@ -72,7 +75,7 @@ public class MovieRepository {
 
     public MutableLiveData<Comment> getCommentsParent(String id, String idUser) {
         MutableLiveData<Comment> commentMutableLiveData = new MutableLiveData<>();
-        apiInterface.getCommentsParent(id, idUser).enqueue(new Callback<Comment>() {
+        apiInterface.getCommentsParent().enqueue(new Callback<Comment>() {
             @Override
             public void onResponse(Call<Comment> call, Response<Comment> response) {
                 if (response.isSuccessful()) {
@@ -144,7 +147,7 @@ public class MovieRepository {
         apiInterface.putLike(likeput).enqueue(new Callback<ResponsePostLike>() {
             @Override
             public void onResponse(Call<ResponsePostLike> call, Response<ResponsePostLike> response) {
-                Log.d("loi put like",response.body().getMessage());
+                Log.d("loi put like", response.body().getMessage());
             }
 
             @Override
@@ -154,21 +157,50 @@ public class MovieRepository {
         });
     }
 
-    public void putWhatLate(WhatLatePut whatLatePut){
-        apiInterface.putWhatLate(whatLatePut).enqueue(new Callback<ResponseMovieLate>() {
+    public void putWhatLate(WhatLatePut whatLatePut) {
+        apiInterface.putWhatLate(whatLatePut).enqueue(new Callback<ResponseWhatLate>() {
             @Override
-            public void onResponse(Call<ResponseMovieLate> call, Response<ResponseMovieLate> response) {
+            public void onResponse(Call<ResponseWhatLate> call, Response<ResponseWhatLate> response) {
 
             }
 
             @Override
-            public void onFailure(Call<ResponseMovieLate> call, Throwable t) {
+            public void onFailure(Call<ResponseWhatLate> call, Throwable t) {
 
             }
         });
     }
 
-    public void postReport(ReportPost reportPost){
+
+    public void postFollower(PostFollower postFollower) {
+        apiInterface.postFollowers(postFollower).enqueue(new Callback<ResponsePostFollower>() {
+            @Override
+            public void onResponse(Call<ResponsePostFollower> call, Response<ResponsePostFollower> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponsePostFollower> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void deleteFollower(PostFollower postFollower){
+        apiInterface.deleteFollowers(postFollower).enqueue(new Callback<ResponsePostFollower>() {
+            @Override
+            public void onResponse(Call<ResponsePostFollower> call, Response<ResponsePostFollower> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponsePostFollower> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void postReport(ReportPost reportPost) {
         apiInterface.postReport(reportPost).enqueue(new Callback<ResponsePostReport>() {
             @Override
             public void onResponse(Call<ResponsePostReport> call, Response<ResponsePostReport> response) {

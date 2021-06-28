@@ -57,7 +57,17 @@ public class Data {
     @SerializedName("linkVerticalCoverImage")
     @Expose
     private String linkVerticalCoverImage;
+    @SerializedName("watchLate")
+    @Expose
+    private Boolean watchLate;
 
+    public Boolean getWatchLate() {
+        return watchLate;
+    }
+
+    public void setWatchLate(Boolean watchLate) {
+        this.watchLate = watchLate;
+    }
 
     public Boolean getLike() {
         return like;

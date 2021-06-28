@@ -9,21 +9,15 @@ import com.example.codeview.R;
 
 public class ClickWhatLate {
     @BindingAdapter({"clickWhatLate"})
-    public static void clickAdd(ImageView viewIm, int k) {
-        final int[] a = {1};
+    public static void clickAdd(ImageView viewIm, int a) {
+        final Boolean[] click = {true};
+        if (a == 0) {
+            viewIm.setImageResource(R.drawable.marcador1);
+            click[0] = false;
+        } else {
+            viewIm.setImageResource(R.drawable.marcador);
+            click[0] = true;
+        }
 
-        viewIm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(a[0] ==1){
-                    viewIm.setImageResource(R.drawable.marcador1);
-                    a[0] =0;
-                }else {
-                    viewIm.setImageResource(R.drawable.marcador);
-                    a[0]=1;
-                }
-
-            }
-        });
     }
 }

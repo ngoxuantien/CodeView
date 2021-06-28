@@ -1,4 +1,4 @@
-package com.example.codeview.model.putmodel;
+package com.example.codeview.model.putpostmodel;
 
 public class Likeput {
     private int isLiked;

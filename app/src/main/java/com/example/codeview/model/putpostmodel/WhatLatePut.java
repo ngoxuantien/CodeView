@@ -1,21 +1,21 @@
-package com.example.codeview.model.putmodel;
+package com.example.codeview.model.putpostmodel;
 
 public class WhatLatePut {
-    private Boolean isWatchLater;
+    private Boolean watchLater;
     private int idVideo,idUser;
 
     public WhatLatePut(Boolean isWatchLater, int idVideo, int idUser) {
-        this.isWatchLater = isWatchLater;
+        this.watchLater = isWatchLater;
         this.idVideo = idVideo;
         this.idUser = idUser;
     }
 
     public Boolean getWatchLater() {
-        return isWatchLater;
+        return watchLater;
     }
 
     public void setWatchLater(Boolean watchLater) {
-        isWatchLater = watchLater;
+        watchLater = watchLater;
     }
 
     public int getIdVideo() {

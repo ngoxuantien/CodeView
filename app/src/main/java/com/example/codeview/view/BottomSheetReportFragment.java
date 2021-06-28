@@ -16,9 +16,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.codeview.model.putmodel.ReportPost;
 import com.example.codeview.view.fragment.LayoutReport1;
-import com.example.codeview.view.fragment.LayoutReport3;
 import com.example.codeview.R;
 
 

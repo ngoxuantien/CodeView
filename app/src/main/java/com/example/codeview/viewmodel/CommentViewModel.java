@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.codeview.model.comment.Comment;
-import com.example.codeview.model.putmodel.CommentPost;
-import com.example.codeview.model.putmodel.ReportPost;
+import com.example.codeview.model.putpostmodel.CommentPost;
+import com.example.codeview.model.putpostmodel.ReportPost;
 import com.example.codeview.repository.MovieRepository;
 
 public class CommentViewModel extends AndroidViewModel {

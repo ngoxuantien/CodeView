@@ -1,4 +1,4 @@
-package com.example.codeview.model.putmodel;
+package com.example.codeview.model.putpostmodel;
 
 public class CommentPost {
     private String content, discriminator, like;
