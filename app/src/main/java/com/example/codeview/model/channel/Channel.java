@@ -3,6 +3,7 @@ package com.example.codeview.model.channel;
 
 
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -14,7 +15,7 @@ public class Channel {
     private String code;
     @SerializedName("message")
     @Expose
-    private Object message;
+    private String message;
     @SerializedName("data")
     @Expose
     private Data data;
@@ -27,11 +28,11 @@ public class Channel {
         this.code = code;
     }
 
-    public Object getMessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(Object message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 

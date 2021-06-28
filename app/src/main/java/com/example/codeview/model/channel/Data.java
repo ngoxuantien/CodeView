@@ -1,5 +1,7 @@
 
 package com.example.codeview.model.channel;
+
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -27,6 +29,18 @@ public class Data {
     @SerializedName("status")
     @Expose
     private Boolean status;
+    @SerializedName("totalLike")
+    @Expose
+    private Integer totalLike;
+    @SerializedName("totalFollower")
+    @Expose
+    private Integer totalFollower;
+    @SerializedName("totalViews")
+    @Expose
+    private Integer totalViews;
+    @SerializedName("checkFollow")
+    @Expose
+    private Boolean checkFollow;
 
     public Integer getIdUser() {
         return idUser;
@@ -82,6 +96,38 @@ public class Data {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Integer getTotalLike() {
+        return totalLike;
+    }
+
+    public void setTotalLike(Integer totalLike) {
+        this.totalLike = totalLike;
+    }
+
+    public Integer getTotalFollower() {
+        return totalFollower;
+    }
+
+    public void setTotalFollower(Integer totalFollower) {
+        this.totalFollower = totalFollower;
+    }
+
+    public Integer getTotalViews() {
+        return totalViews;
+    }
+
+    public void setTotalViews(Integer totalViews) {
+        this.totalViews = totalViews;
+    }
+
+    public Boolean getCheckFollow() {
+        return checkFollow;
+    }
+
+    public void setCheckFollow(Boolean checkFollow) {
+        this.checkFollow = checkFollow;
     }
 
 }
