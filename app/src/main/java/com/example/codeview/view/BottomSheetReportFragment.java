@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.codeview.model.putpostmodel.ReportPost;
 import com.example.codeview.view.fragment.LayoutReport1;
 import com.example.codeview.R;
 
@@ -74,8 +75,9 @@ public class BottomSheetReportFragment extends BottomSheetDialogFragment {
         return view;
     }
 
+
     public void postReport() {
-        //    commentViewModel.postReport(new ReportPost(idReport, 1, 1, 1, "tien"));
+            commentViewModel.postReport(new ReportPost(idReport, 1, 1, 1, "tien"));
 
     }
 

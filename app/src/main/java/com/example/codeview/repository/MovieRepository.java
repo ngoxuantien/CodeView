@@ -20,7 +20,6 @@ import com.example.codeview.model.responsepostlike.ResponsePostLike;
 import com.example.codeview.model.responsereport.ResponsePostReport;
 import com.example.codeview.model.responsewhatlate.ResponseWhatLate;
 import com.example.codeview.model.video.VideoAcount;
-import com.google.android.exoplayer2.C;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,9 +54,9 @@ public class MovieRepository {
         return videoAcountMutableLiveData;
     }
 
-    public MutableLiveData<Channel> getChannel(String id,String idUser) {
+    public MutableLiveData<Channel> getChannel(String id, String idUser) {
         MutableLiveData<Channel> channelMutableLiveData = new MutableLiveData<>();
-        apiInterface.getChannel(id,idUser).enqueue(new Callback<Channel>() {
+        apiInterface.getChannel(id, idUser).enqueue(new Callback<Channel>() {
             @Override
             public void onResponse(Call<Channel> call, Response<Channel> response) {
                 if ((response.isSuccessful())) {
@@ -186,7 +185,7 @@ public class MovieRepository {
         });
     }
 
-    public void deleteFollower(PostFollower postFollower){
+    public void deleteFollower(PostFollower postFollower) {
         apiInterface.deleteFollowers(postFollower).enqueue(new Callback<ResponsePostFollower>() {
             @Override
             public void onResponse(Call<ResponsePostFollower> call, Response<ResponsePostFollower> response) {
@@ -204,7 +203,7 @@ public class MovieRepository {
         apiInterface.postReport(reportPost).enqueue(new Callback<ResponsePostReport>() {
             @Override
             public void onResponse(Call<ResponsePostReport> call, Response<ResponsePostReport> response) {
-
+                Log.d("messs", response.body().getMessage());
             }
 
             @Override

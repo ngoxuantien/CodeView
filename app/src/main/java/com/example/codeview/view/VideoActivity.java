@@ -255,11 +255,11 @@ public class VideoActivity extends AppCompatActivity {
 
                 }
                 if (h == 1) {
-                    videoUserViewModel.putLike(new Likeput(0, 1, 3));
+                    videoUserViewModel.putLike(new Likeput(0, videoAcount.getData().getIdVideo(), 3));
                     setIsLike(0);
                     h = 0;
                 } else {
-                    videoUserViewModel.putLike(new Likeput(1, 1, 3));
+                    videoUserViewModel.putLike(new Likeput(1, videoAcount.getData().getIdVideo(), 3));
                     setIsLike(1);
                     h = 1;
 

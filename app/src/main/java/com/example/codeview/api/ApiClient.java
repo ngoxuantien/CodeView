@@ -23,7 +23,7 @@ public class ApiClient {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
                         Request newRequest  = chain.request().newBuilder()
-                                .addHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjI0ODgxMTQ0LCJpYXQiOjE2MjQ4NDUxNDR9.LP8FSDYI6ZVn1XwFK0SlMbxzHWAxis4sxaTBGAmqDKU")
+                                .addHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNjI0OTY3MTExLCJpYXQiOjE2MjQ5MzExMTF9.9olS7tIIdqGGXiDy5ts00zwN2IuSgmI63SUg_CH2jBA")
                                 .build();
                         return chain.proceed(newRequest);
                     }
