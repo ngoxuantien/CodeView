@@ -21,6 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -32,12 +33,15 @@ public interface ApiInterface {
     Call<Channel> getChannel(@Query("id_video") String id,
                              @Query("id_user") String iduser);
 
-    @GET("5?id_user=1&offset=0&limit=5")
-    Call<Comment> getCommentsParent();
+    @GET("comments/video/{idVideo}")
+    Call<Comment> getCommentsParent(@Path("idVideo") String idVideo, @Query("id_user") String iduser,
+                                    @Query("offset") int offset,
+                                    @Query("limit") int limit);
 
-    @GET("comments/parent")
-    Call<Comment> getComments(@Query("id_parent") String id,
-                              @Query("id_user") String iduser);
+    @GET("comments/parent/{id_parent}")
+    Call<Comment> getComments(@Path("id_parent") String id,
+                              @Query("id_user") String iduser,  @Query("offset") int offset,
+                              @Query("limit") int limit);
 
     @GET(" hashtags/12")
     Call<HashTag> getHashTag(@Query("id_video") String id);

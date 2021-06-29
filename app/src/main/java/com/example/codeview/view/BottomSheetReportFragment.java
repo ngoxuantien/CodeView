@@ -3,6 +3,7 @@ package com.example.codeview.view;
 import android.app.Dialog;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +78,8 @@ public class BottomSheetReportFragment extends BottomSheetDialogFragment {
 
 
     public void postReport() {
-            commentViewModel.postReport(new ReportPost(idReport, 1, 1, 1, "tien"));
+        Log.d("hoahaohao",commentViewModel.getIdCommentReport()+"");
+            commentViewModel.postReport(new ReportPost(idReport, 1, 1, commentViewModel.getIdCommentReport(), "tien"));
 
     }
 

@@ -61,6 +61,7 @@ public class MovieRepository {
             public void onResponse(Call<Channel> call, Response<Channel> response) {
                 if ((response.isSuccessful())) {
                     channelMutableLiveData.setValue(response.body());
+
                 }
             }
 
@@ -74,7 +75,7 @@ public class MovieRepository {
 
     public MutableLiveData<Comment> getCommentsParent(String id, String idUser) {
         MutableLiveData<Comment> commentMutableLiveData = new MutableLiveData<>();
-        apiInterface.getCommentsParent().enqueue(new Callback<Comment>() {
+        apiInterface.getCommentsParent(id, idUser, 0, 200).enqueue(new Callback<Comment>() {
             @Override
             public void onResponse(Call<Comment> call, Response<Comment> response) {
                 if (response.isSuccessful()) {
@@ -92,7 +93,7 @@ public class MovieRepository {
 
     public MutableLiveData<Comment> getComment(String id, String idUser) {
         MutableLiveData<Comment> commentMutableLiveData = new MutableLiveData<>();
-        apiInterface.getComments(id, idUser).enqueue(new Callback<Comment>() {
+        apiInterface.getComments(id, idUser, 0, 200).enqueue(new Callback<Comment>() {
             @Override
             public void onResponse(Call<Comment> call, Response<Comment> response) {
                 if (response.isSuccessful()) {

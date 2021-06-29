@@ -6,7 +6,9 @@
     <data>
 
         <import type="android.view.View" />
-
+<variable
+    name="isLike"
+    type="Integer" />
         <variable
             name="roll"
             type="Boolean" />
@@ -26,6 +28,9 @@
         <variable
             name="clickReport"
             type="com.example.codeview.util.CustomClickReport" />
+        <variable
+            name="clickLike"
+            type="com.example.codeview.util.CustomClickLike" />
 
         <variable
             name="view"
@@ -101,7 +106,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        clickLikeComment="@{1}"
+                        android:onClick="@{()->clickLike.setClickLike()}"
+                        clickLikeComment="@{isLike}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"

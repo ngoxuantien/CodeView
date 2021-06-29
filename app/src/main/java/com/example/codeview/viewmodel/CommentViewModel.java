@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.putpostmodel.CommentPost;
+import com.example.codeview.model.putpostmodel.Likeput;
 import com.example.codeview.model.putpostmodel.ReportPost;
 import com.example.codeview.repository.MovieRepository;
 
@@ -23,6 +24,9 @@ public class CommentViewModel extends AndroidViewModel {
 
     private MovieRepository movieRepository = new MovieRepository();
 
+    // id comment report
+    private MutableLiveData<Integer> idCommentReport= new MutableLiveData<>();
+
 
     public CommentViewModel(@NonNull Application application) {
         super(application);
@@ -37,6 +41,12 @@ public class CommentViewModel extends AndroidViewModel {
     public void setIcCommentResponse(String id) {
         idCommentRespons.setValue(id);
 
+    }
+    public int getIdCommentReport(){
+        return idCommentReport.getValue() ;
+    }
+    public void setIdCommentReport(int id){
+        idCommentReport.setValue(id);
     }
 
     public String getIdCommentResponse() {
@@ -74,6 +84,8 @@ public class CommentViewModel extends AndroidViewModel {
         movieRepository.postReport(reportPost);
     }
 
-
+    public void putLike(Likeput likeput) {
+        movieRepository.putLike(likeput);
+    }
 
 }

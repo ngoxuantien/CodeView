@@ -25,6 +25,7 @@ import com.example.codeview.R;
 import com.example.codeview.databinding.ItemCommentBinding;
 import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.comment.Datum;
+import com.example.codeview.model.putpostmodel.Likeput;
 import com.example.codeview.view.BottomSheetReportFragment;
 import com.example.codeview.view.MyBottonSheetDialogFragment;
 import com.example.codeview.viewmodel.CommentViewModel;
@@ -37,8 +38,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     private List<Datum> commentList;
     private CommentViewModel commentViewModel;
     private List<Datum> commentResponse;
-    private Handler handler;
     private Activity activity;
+
 
     public CommentAdapter(Context context, List<Datum> commentList, Activity activity) {
         this.context = context;
@@ -74,14 +75,24 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         });
         commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
         // phải fix id user
-        commentViewModel.getComment(commentList.get(position).getIdComment() + "","3");
+        commentViewModel.getComment(commentList.get(position).getIdComment() + "", "3");
 
+        commentViewModel.commentsParent.observe((LifecycleOwner) context, new Observer<Comment>() {
+            @Override
+            public void onChanged(Comment comment) {
+                if (comment.getData().get(position).getIsLike() == 1) {
+                    holder.itemCommentBinding.setIsLike(1);
+                } else {
+                    holder.itemCommentBinding.setIsLike(0);
+                }
 
+            }
+        });
         //////////////////////////////////////////////////////////////////////////////////////////////
         holder.itemCommentBinding.setClickResponse(() -> {
             // set id coment cha vào livedata
             commentViewModel.setIcCommentResponse(commentList.get(position).getIdComment() + "");
-        //    holder.showKeyboard();
+            //    holder.showKeyboard();
             Toast toast = Toast.makeText(context, "thử nhiệm test", Toast.LENGTH_SHORT);
             toast.show();
             //
@@ -89,11 +100,20 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         holder.itemCommentBinding.setClickReport(() -> {
             // thêm dữ liệu để biết trường idComment
+            commentViewModel.setIdCommentReport(commentList.get(position).getIdComment());
             BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
             bottomSheetReportFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
         });
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        holder.itemCommentBinding.setClickLike(() -> {
+            commentViewModel.commentsParent.observe((LifecycleOwner) context, new Observer<Comment>() {
+                @Override
+                public void onChanged(Comment comment) {
 
+                }
+
+            });
+        });
 
         commentViewModel.comment.observe((LifecycleOwner) context, new Observer<Comment>() {
             @Override
@@ -140,7 +160,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
 
         public void showKeyboard() {
             InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,3);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 3);
         }
 
     }

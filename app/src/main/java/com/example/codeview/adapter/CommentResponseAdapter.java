@@ -41,6 +41,9 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
         holder.commentTime.setText(commentListResponse.get(position).TextTime());
         holder.commentContent.setText(commentListResponse.get(position).getContent());
         holder.commentLike.setText(commentListResponse.get(position).getLike()+"");
+        if(commentListResponse.get(position).getIsLike()==1){
+
+        }
         holder.commentLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
