@@ -4,8 +4,16 @@
     <data>
 
         <variable
+            name="Comment"
+            type="com.example.codeview.model.comment.Datum" />
+
+        <variable
             name="isLike"
             type="Integer" />
+
+        <variable
+            name="clickReport"
+            type="com.example.codeview.util.CustomClickReport" />
 
     </data>
 
@@ -26,7 +34,7 @@
                 android:id="@+id/commentimage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/group_16" />
+                app:loadImage="@{Comment.userResponseDto.photo}" />
         </androidx.cardview.widget.CardView>
 
         <RelativeLayout
@@ -44,7 +52,7 @@
                     android:id="@+id/commentName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Léa Antonella"
+                    android:text="@{Comment.userResponseDto.nickName}"
                     android:textColor="#667b90"
                     android:textSize="11sp"
                     android:textStyle="normal" />
@@ -54,8 +62,7 @@
                     android:layout_width="198dp"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="5sp"
-                    android:text="Lorem ipsum dolor sit amet,consectetur
-adipisci elit"
+                    android:text="@{Comment.content}"
                     android:textColor="#000000"
                     android:textSize="13sp"
                     android:textStyle="normal" />
@@ -72,7 +79,7 @@ adipisci elit"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="21dp"
                         android:lineSpacingExtra="7sp"
-                        android:text="13h"
+                        android:text="@{Comment.TextTime()}"
                         android:textColor="#667b90"
                         android:textSize="11sp"
                         android:textStyle="normal" />
@@ -83,9 +90,9 @@ adipisci elit"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:lineSpacingExtra="7sp"
+                        android:onClick="@{()->clickReport.setClickReport()}"
                         android:text="Denunciar"
                         android:textColor="#667b90"
-
                         android:textSize="11sp"
                         android:textStyle="normal" />
 
@@ -114,7 +121,8 @@ adipisci elit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="100" />
+                    android:gravity="center"
+                    android:text="@{Comment.convertLike()}" />
             </LinearLayout>
         </RelativeLayout>
 

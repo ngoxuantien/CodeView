@@ -78,8 +78,8 @@ public class BottomSheetReportFragment extends BottomSheetDialogFragment {
 
 
     public void postReport() {
-        Log.d("hoahaohao",commentViewModel.getIdCommentReport()+"");
-            commentViewModel.postReport(new ReportPost(idReport, 1, 1, commentViewModel.getIdCommentReport(), "tien"));
+        Log.d("hoahaohao", commentViewModel.getIdCommentReport() + "");
+        commentViewModel.postReport(new ReportPost(idReport, 1, 1, commentViewModel.getIdCommentReport(), "tien"));
 
     }
 

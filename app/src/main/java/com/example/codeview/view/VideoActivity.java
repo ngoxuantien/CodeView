@@ -272,26 +272,26 @@ public class VideoActivity extends AppCompatActivity {
 
     }
 
-    public void clickSubChange(){
+    public void clickSubChange() {
         videoUserViewModel.channel.observe(this, new Observer<Channel>() {
             @Override
             public void onChanged(Channel channel) {
-               setChannel(channel.getData());
-                if(g1<1){
-                    if (channel.getData().getCheckFollow()){
-                        h1=1;
-                    }else h1=0;
+                setChannel(channel.getData());
+                if (g1 < 1) {
+                    if (channel.getData().getCheckFollow()) {
+                        h1 = 1;
+                    } else h1 = 0;
 
                 }
-                if(h1==1){
-                    videoUserViewModel.deleteFollower(new PostFollower(3+"",channel.getData().getIdUser().toString()));
+                if (h1 == 1) {
+                    videoUserViewModel.deleteFollower(new PostFollower(3 + "", channel.getData().getIdUser().toString()));
                     setIsFollow(0);
-                    h1=0;
+                    h1 = 0;
 
-                }else {
-                    videoUserViewModel.postFollower(new PostFollower(3+"",channel.getData().getIdUser().toString()));
+                } else {
+                    videoUserViewModel.postFollower(new PostFollower(3 + "", channel.getData().getIdUser().toString()));
                     setIsFollow(1);
-                    h1=1;
+                    h1 = 1;
 
 
                 }

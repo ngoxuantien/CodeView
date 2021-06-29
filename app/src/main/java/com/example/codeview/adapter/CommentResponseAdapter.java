@@ -9,18 +9,25 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.codeview.R;
+import com.example.codeview.databinding.ItemResponseCommentBinding;
 import com.example.codeview.model.comment.Comment;
 import com.example.codeview.model.comment.Datum;
+import com.example.codeview.view.BottomSheetReportFragment;
 import com.example.codeview.view.MyBottonSheetDialogFragment;
+import com.example.codeview.viewmodel.CommentViewModel;
 
 import java.util.List;
 
 public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponseAdapter.ViewHolder> {
     private Context context;
     private List<Datum> commentListResponse;
+    private CommentViewModel commentViewModel;
 
     public CommentResponseAdapter(Context context, List<Datum> commentListResponse) {
         this.context = context;
@@ -30,26 +37,26 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
     @NonNull
     @Override
     public CommentResponseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_response_comment,parent,false));
+        ItemResponseCommentBinding itemResponseCommentBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_response_comment, parent, false);
+        return new ViewHolder(itemResponseCommentBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CommentResponseAdapter.ViewHolder holder, int position) {
 
-     //   Glide.with(context).load(commentListResponse.get(position).getCommentImage()).into(holder.commentImage);
-        holder.commentName.setText("");
-        holder.commentTime.setText(commentListResponse.get(position).TextTime());
-        holder.commentContent.setText(commentListResponse.get(position).getContent());
-        holder.commentLike.setText(commentListResponse.get(position).getLike()+"");
-        if(commentListResponse.get(position).getIsLike()==1){
-
+        //   Glide.with(context).load(commentListResponse.get(position).getCommentImage()).into(holder.commentImage);
+        holder.itemResponseCommentBinding.setComment(commentListResponse.get(position));
+        commentViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(CommentViewModel.class);
+        if (commentListResponse.get(position).getIsLike() == 1) {
+            holder.itemResponseCommentBinding.setIsLike(1);
+        }else {
+            holder.itemResponseCommentBinding.setIsLike(0);
         }
-        holder.commentLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyBottonSheetDialogFragment sheetDialogFragment = MyBottonSheetDialogFragment.newInstance();
-                sheetDialogFragment.show(((AppCompatActivity)context).getSupportFragmentManager(), sheetDialogFragment.getTag());
-            }
+        holder.itemResponseCommentBinding.setClickReport(() -> {
+            // thêm dữ liệu để biết trường idComment
+            commentViewModel.setIdCommentReport(commentListResponse.get(position).getIdComment());
+            BottomSheetReportFragment bottomSheetReportFragment = BottomSheetReportFragment.newInstance();
+            bottomSheetReportFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), bottomSheetReportFragment.getTag());
         });
     }
 
@@ -59,17 +66,17 @@ public class CommentResponseAdapter extends RecyclerView.Adapter<CommentResponse
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView commentImage;
+        private ItemResponseCommentBinding itemResponseCommentBinding;
 
-        TextView commentContent,commentName,commentLike,commentTime;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            commentName = itemView.findViewById(R.id.commentName);
-            commentImage = itemView.findViewById(R.id.commentimage);
-            commentContent = itemView.findViewById(R.id.commentContent);
-            commentTime = itemView.findViewById(R.id.commentTime);
-            commentLike=itemView.findViewById(R.id.commentLike);
+        public ViewHolder(@NonNull ItemResponseCommentBinding binding) {
+            super(binding.getRoot());
+            this.itemResponseCommentBinding = binding;
 
+
+        }
+
+        public void bind(Object obj) {
+            itemResponseCommentBinding.executePendingBindings();
         }
     }
 }

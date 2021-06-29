@@ -17,15 +17,13 @@ public class CommentViewModel extends AndroidViewModel {
     public static String inputComnet;
     public MutableLiveData<Comment> commentsParent = new MutableLiveData<>();
     public MutableLiveData<Comment> comment = new MutableLiveData<>();
-
-
     // id comment cha
     private MutableLiveData<String> idCommentRespons = new MutableLiveData<>();
-
     private MovieRepository movieRepository = new MovieRepository();
-
     // id comment report
-    private MutableLiveData<Integer> idCommentReport= new MutableLiveData<>();
+    private MutableLiveData<Integer> idCommentReport = new MutableLiveData<>();
+
+
 
 
     public CommentViewModel(@NonNull Application application) {
@@ -33,8 +31,8 @@ public class CommentViewModel extends AndroidViewModel {
     }
 
 
-    public void getCommentsParent(String id,String idUser) {
-        commentsParent = movieRepository.getCommentsParent(id,idUser);
+    public void getCommentsParent(String id, String idUser) {
+        commentsParent = movieRepository.getCommentsParent(id, idUser);
 
     }
 
@@ -42,10 +40,12 @@ public class CommentViewModel extends AndroidViewModel {
         idCommentRespons.setValue(id);
 
     }
-    public int getIdCommentReport(){
-        return idCommentReport.getValue() ;
+
+    public int getIdCommentReport() {
+        return idCommentReport.getValue();
     }
-    public void setIdCommentReport(int id){
+
+    public void setIdCommentReport(int id) {
         idCommentReport.setValue(id);
     }
 
@@ -54,8 +54,8 @@ public class CommentViewModel extends AndroidViewModel {
     }
 
 
-    public void getComment(String id,String idUser) {
-        comment = movieRepository.getComment(id,idUser);
+    public void getComment(String id, String idUser) {
+        comment = movieRepository.getComment(id, idUser);
     }
 
     public String getinput() {
@@ -80,7 +80,8 @@ public class CommentViewModel extends AndroidViewModel {
 
 
     }
-    public void postReport(ReportPost reportPost){
+
+    public void postReport(ReportPost reportPost) {
         movieRepository.postReport(reportPost);
     }
 
